@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <!--<color name="textColorPrimary">#C8E6C9</color>-->
+    <color name="colorAccent">#8BC34A</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="navigationBarColor">#4CAF50</color>
+
+</resources>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<resources>-->
+<!--<color name="colorPrimary">#125688</color>-->
+<!--<color name="colorPrimaryDark">#125688</color>-->
+<!--<color name="textColorPrimary">#FFFFFF</color>-->
+<!--<color name="windowBackground">#FFFFFF</color>-->
+<!--<color name="navigationBarColor">#000000</color>-->
+<!--<color name="colorAccent">#c8e8ff</color>-->
+    <!---->
+<!--</resources>-->
