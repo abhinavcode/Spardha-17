@@ -11,17 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.abc.spardha17.R;
-import com.abc.spardha17.fragments.OneFragment;
-import com.abc.spardha17.fragments.ThreeFragment;
-import com.abc.spardha17.fragments.TwoFragment;
-
+import com.abc.spardha17.fragments.GameActivity.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game extends AppCompatActivity {
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+
+
     int position=0;
     CollapsingToolbarLayout mainImage;
    String[] titles = {"Athletics",
@@ -60,11 +56,15 @@ public class Game extends AppCompatActivity {
             R.drawable.volleyball,
             R.drawable.weightlifting
     };
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
 //        Bundle extras=getIntent().getExtras();
         position=getIntent().getExtras().getInt("position");
@@ -80,21 +80,22 @@ public class Game extends AppCompatActivity {
 //            }
 //        });
 
-        mainImage=(CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        mainImage = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout1);
         mainImage.setBackgroundResource(images[position]);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager1);
         setupViewPager(viewPager);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs1);
         tabLayout.setupWithViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "ONE");
-        adapter.addFragment(new TwoFragment(), "TWO");
-        adapter.addFragment(new ThreeFragment(), "THREE");
+        adapter.addFragment(new OneFragmentGame(), "FIXTURES");
+        adapter.addFragment(new TwoFragmentGame(), "RESULTS");
+        adapter.addFragment(new ThreeFragmentGame(), "RESULT");
+        adapter.addFragment(new FourFragmentGame(), "CONTACTS");
         viewPager.setAdapter(adapter);
     }
 
@@ -126,4 +127,5 @@ public class Game extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
 }

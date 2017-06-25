@@ -1,4 +1,4 @@
-package com.abc.spardha17.fragments;
+package com.abc.spardha17.fragments.GameActivity;
 
 
 import android.os.Bundle;
@@ -12,12 +12,13 @@ import com.abc.spardha17.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ThreeFragment extends Fragment {
+public class ThreeFragmentGame extends Fragment {
 
 
-    public ThreeFragment() {
+    public ThreeFragmentGame() {
         // Required empty public constructor
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

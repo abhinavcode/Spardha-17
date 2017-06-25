@@ -4,6 +4,7 @@ package com.abc.spardha17.fragments.GameActivity;
  * Created by abhinav on 5/14/2017.
  */
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,12 @@ import android.widget.TextView;
 
 import com.abc.spardha17.R;
 
-public class RecyclerAdapterGame extends RecyclerView.Adapter<RecyclerAdapterGame.ViewHolder> {
+import java.util.ArrayList;
+import java.util.List;
 
+public class RecyclerAdapterGame extends RecyclerView.Adapter<RecyclerAdapterGame.ViewHolder> {
+    private List<DataResults> t = new ArrayList<DataResults>();
+    private Context context;
     private String[] titles = {"Athletics",
             "Badminton",
             "Basketball",
@@ -71,8 +76,16 @@ public class RecyclerAdapterGame extends RecyclerView.Adapter<RecyclerAdapterGam
             R.drawable.tt,
     };
 
+    public RecyclerAdapterGame(Context baseContext, List<DataResults> datalist) {
+        context = baseContext;
+        t = datalist;
+    }
+
+
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+//        data();
         View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.update_game_card, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
@@ -81,21 +94,18 @@ public class RecyclerAdapterGame extends RecyclerView.Adapter<RecyclerAdapterGam
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.eventName.setText(titles[i]);
-//        viewHolder.itemImage.setImageResource(images[i]);
-//    viewHolder.itemTitle.setTextColor(Color.parseColor(colors[i]));
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            viewHolder.itemImage.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colors[i])));
-//        }
+//        data();
+        viewHolder.eventName.setText(t.get(i).getEventName());
+
     }
 
     @Override
     public int getItemCount() {
-        return titles.length;
+//        data();
+        return t.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public int currentItem;
         public TextView eventName;
         public TextView location;
@@ -115,27 +125,12 @@ public class RecyclerAdapterGame extends RecyclerView.Adapter<RecyclerAdapterGam
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-//                    Intent intent = new Intent(itemView.getContext(), Game.class);
-                    // create the transition animation - the images in the layouts
-                    // of both activities are defined with android:transitionName="robot"
-//                    ActivityOptions options = ActivityOptions
-//                            .makeSceneTransitionAnimation((Activity) itemView.getContext(), itemView, "game");
-                    // start the new activity
-                    System.out.println("posotion before " + position);
-//                    Toast.makeText(itemView.getContext(), "made upto here "+position , Toast.LENGTH_LONG).show();
+//                    System.out.println("posotion before " + position);
 
-//                    Bundle b=options.toBundle();
-//                    b.putInt("position",position);
-//                    intent.putExtras(b);
-//                    itemView.getContext().startActivity(intent,b);
-
-                    //PREDEIFINED
-//                    Snackbar.make(v, "Click detected on item " + position,
-//                            Snackbar.LENGTH_LONG)
-//                            .setAction("Action", null).show();
 
                 }
             });
         }
     }
+
 }

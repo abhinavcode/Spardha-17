@@ -2,38 +2,39 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
     android:background="@null"
-    android:id="@+id/card_view"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground"
+    card_view:cardBackgroundColor="#70FFFFFF"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="3dp"
-    android:layout_margin="5dp"
-    card_view:contentPadding="4dp"
-    android:foreground="?selectableItemBackground"
-    android:clickable="true" >
+    card_view:contentPadding="4dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="16dp"
-    android:background="@null"
         android:layout_gravity="center"
-        android:gravity="center">
+        android:background="@null"
+        android:elevation="16dp"
+        android:gravity="center"
+        android:orientation="vertical">
         <ImageView
-            android:layout_width="match_parent"
-            android:src="@drawable/wl"
-            android:background="@drawable/roundwl"
             android:id="@+id/imageofs"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:padding="12dp"/>
+            android:background="@drawable/roundwl"
+            android:padding="12dp"
+            android:src="@drawable/wl" />
         <TextView
+            android:id="@+id/textofs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:id="@+id/textofs"
             android:text="Weightlifting"
+            android:textAlignment="center"
             android:textColor="@android:color/holo_blue_dark"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

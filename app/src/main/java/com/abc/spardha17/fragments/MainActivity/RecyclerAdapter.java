@@ -1,4 +1,4 @@
-package com.abc.spardha17.fragments;
+package com.abc.spardha17.fragments.MainActivity;
 
 /**
  * Created by abhinav on 5/14/2017.
@@ -80,6 +80,29 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             R.drawable.tt,
              };
 
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.card_layout, viewGroup, false);
+        ViewHolder viewHolder = new ViewHolder(v);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        viewHolder.itemTitle.setText(titles[i]);
+        viewHolder.itemImage.setImageResource(images[i]);
+        viewHolder.itemTitle.setTextColor(Color.parseColor(colors[i]));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            viewHolder.itemImage.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colors[i])));
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return titles.length;
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder{
 
         public int currentItem;
@@ -117,28 +140,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 }
             });
         }
-    }
-
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.card_layout, viewGroup, false);
-        ViewHolder viewHolder = new ViewHolder(v);
-        return viewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.itemTitle.setText(titles[i]);
-        viewHolder.itemImage.setImageResource(images[i]);
-    viewHolder.itemTitle.setTextColor(Color.parseColor(colors[i]));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            viewHolder.itemImage.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colors[i])));
-        }
-    }
-
-    @Override
-    public int getItemCount() {
-        return titles.length;
     }
 }

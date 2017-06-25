@@ -10,7 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.abc.spardha17.R;
-import com.abc.spardha17.fragments.*;
+import com.abc.spardha17.fragments.MainActivity.OneFragment;
+import com.abc.spardha17.fragments.MainActivity.ThreeFragment;
+import com.abc.spardha17.fragments.MainActivity.TwoFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "ONE");
-        adapter.addFragment(new TwoFragment(), "TWO");
-        adapter.addFragment(new ThreeFragment(), "THREE");
+        adapter.addFragment(new OneFragment(), "EVENTS");
+        adapter.addFragment(new TwoFragment(), "INFORMALS");
+        adapter.addFragment(new ThreeFragment(), "VIDEO WALL");
         viewPager.setAdapter(adapter);
     }
 

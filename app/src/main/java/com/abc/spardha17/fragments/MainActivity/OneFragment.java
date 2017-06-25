@@ -1,4 +1,4 @@
-package com.abc.spardha17.fragments;
+package com.abc.spardha17.fragments.MainActivity;
 
 import android.content.Intent;
 import android.os.Bundle;

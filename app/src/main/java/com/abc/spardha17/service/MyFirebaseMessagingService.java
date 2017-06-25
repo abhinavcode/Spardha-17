@@ -12,7 +12,7 @@ import android.util.Log;
 
 import com.abc.spardha17.activity.MainActivity;
 import com.abc.spardha17.app.Config;
-import com.abc.spardha17.util.NotificationUtils;
+import com.abc.spardha17.utils.NotificationUtils;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

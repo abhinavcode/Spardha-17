@@ -1,9 +1,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.abc.spardha17.fragments.TwoFragment">
+    tools:context="com.abc.spardha17.fragments.MainActivity.TwoFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.LinearLayoutCompat
@@ -13,10 +13,10 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:transitionName="game"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:transitionName="game"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
     <!--<LinearLayout-->
         <!--android:orientation="horizontal"-->
