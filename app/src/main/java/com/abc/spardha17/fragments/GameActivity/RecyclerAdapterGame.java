@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.abc.spardha17.R;
+import com.abc.spardha17.fragments.Strings.strings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,62 +20,10 @@ import java.util.List;
 public class RecyclerAdapterGame extends RecyclerView.Adapter<RecyclerAdapterGame.ViewHolder> {
     private List<DataResults> t = new ArrayList<DataResults>();
     private Context context;
-    private String[] titles = {"Athletics",
-            "Badminton",
-            "Basketball",
-            "Boxing",
-            "Carrom",
-            "Chess",
-            "Cricket",
-            "Football",
-            "Handball",
-            "Hockey",
-            "Kabaddi",
-            "Lawn Tennis",
-            "Squash",
-            "Table Tennis",
-            "Taekwando",
-            "Volleyball",
-            "Weightlifting"
-    };
+    strings item=new strings();
+    private String[] titles = item.titles;
+    private int[] images = item.icons;
 
-    private String[] colors = {"#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1"
-    };
-
-    private int[] images = {R.drawable.wl,
-            R.drawable.hy,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.wl,
-            R.drawable.hy,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.wl,
-            R.drawable.hy,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.wl,
-            R.drawable.wl,
-            R.drawable.hy,
-            R.drawable.tt,
-            R.drawable.tt,
-    };
 
     public RecyclerAdapterGame(Context baseContext, List<DataResults> datalist) {
         context = baseContext;

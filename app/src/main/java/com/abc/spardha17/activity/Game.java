@@ -11,7 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.abc.spardha17.R;
-import com.abc.spardha17.fragments.GameActivity.*;
+import com.abc.spardha17.fragments.GameActivity.OneFragmentGame;
+import com.abc.spardha17.fragments.GameActivity.ThreeFragmentGame;
+import com.abc.spardha17.fragments.GameActivity.TwoFragmentGame;
+import com.abc.spardha17.fragments.Strings.strings;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,42 +24,9 @@ public class Game extends AppCompatActivity {
 
     int position=0;
     CollapsingToolbarLayout mainImage;
-   String[] titles = {"Athletics",
-           "Badminton",
-           "Basketball",
-           "Boxing",
-           "Carrom",
-           "Chess",
-           "Cricket",
-           "Football",
-           "Handball",
-           "Hockey",
-           "Kabaddi",
-           "Lawn Tennis",
-           "Squash",
-           "Table Tennis",
-           "Taekwando",
-           "Volleyball",
-           "Weightlifting"
-    };
-    int[] images = { R.drawable.athletics,
-            R.drawable.badminton,
-            R.drawable.basketball,
-            R.drawable.boxing,
-            R.drawable.carrom,
-            R.drawable.chess,
-            R.drawable.cricket,
-            R.drawable.football,
-            R.drawable.handball,
-            R.drawable.hockey,
-            R.drawable.kabaddi,
-            R.drawable.lawntennis,
-            R.drawable.squash,
-            R.drawable.tabletennis,
-            R.drawable.taekwando,
-            R.drawable.volleyball,
-            R.drawable.weightlifting
-    };
+    strings item=new strings();
+   String[] titles =item.titles;
+    int[] images = item.images;
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -94,8 +65,7 @@ public class Game extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new OneFragmentGame(), "FIXTURES");
         adapter.addFragment(new TwoFragmentGame(), "RESULTS");
-        adapter.addFragment(new ThreeFragmentGame(), "RESULT");
-        adapter.addFragment(new FourFragmentGame(), "CONTACTS");
+        adapter.addFragment(new ThreeFragmentGame(), "CONTACTS");
         viewPager.setAdapter(adapter);
     }
 

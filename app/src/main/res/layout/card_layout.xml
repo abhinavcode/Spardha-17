@@ -9,32 +9,36 @@
     android:background="@null"
     android:clickable="true"
     android:foreground="?selectableItemBackground"
-    card_view:cardBackgroundColor="#70FFFFFF"
+    card_view:cardBackgroundColor="#FFFFFF"
     card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="3dp"
-    card_view:contentPadding="4dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@null"
-        android:elevation="16dp"
-        android:gravity="center"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/imageofs"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@drawable/roundwl"
-            android:padding="12dp"
-            android:src="@drawable/wl" />
-        <TextView
-            android:id="@+id/textofs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Weightlifting"
-            android:textAlignment="center"
-            android:textColor="@android:color/holo_blue_dark"/>
-    </LinearLayout>
+    card_view:cardPreventCornerOverlap="false"
+    card_view:cardElevation="3dp">
+    <ImageView
+    android:id="@+id/imageofs"
+    android:layout_width="140dp"
+    android:layout_height="160dp"
+    android:src="@drawable/weight" />
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:background="@null"-->
+        <!--android:elevation="16dp"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+        <!--<ImageView-->
+            <!--android:id="@+id/imageofs"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:background="@drawable/roundwl"-->
+            <!--android:padding="12dp"-->
+            <!--android:src="@drawable/weight" />-->
+        <!--<TextView-->
+            <!--android:id="@+id/textofs"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Weightlifting"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="@android:color/holo_blue_dark"/>-->
+    <!--</LinearLayout>-->
 </android.support.v7.widget.CardView>

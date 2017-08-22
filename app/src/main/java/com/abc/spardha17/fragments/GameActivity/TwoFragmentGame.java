@@ -45,18 +45,18 @@ public class TwoFragmentGame extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.updates_game, container, false);
-        recyclerView =
-                (RecyclerView) v.findViewById(R.id.recycler_view1);
+            recyclerView =
+                    (RecyclerView) v.findViewById(R.id.recycler_view1);
 
-        getdatafromserver();
+            getdatafromserver();
 
-        gridlayoutManager = new GridLayoutManager(getActivity(), 1);
-        recyclerView.setLayoutManager(gridlayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+            gridlayoutManager = new GridLayoutManager(getActivity(), 1);
+            recyclerView.setLayoutManager(gridlayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        adapter = new RecyclerAdapterGame(getActivity().getBaseContext(), resultdata);
-        recyclerView.setAdapter(adapter);
-        resultdata.clear();
+            adapter = new RecyclerAdapterGame(getActivity().getBaseContext(), resultdata);
+            recyclerView.setAdapter(adapter);
+            resultdata.clear();
 //        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override
 //            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -74,7 +74,7 @@ public class TwoFragmentGame extends android.support.v4.app.Fragment {
 
     private void getdatafromserver() {
         String tag_json_arry = "json_array_req";
-        String url = "http://api.androidhive.info/volley/person_array.json";
+        String url = "https://quarkbackend.com/getfile/eternaldivine100/basketball";
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();

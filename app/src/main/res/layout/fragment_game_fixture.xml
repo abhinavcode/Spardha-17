@@ -1,0 +1,101 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.abc.spardha17.fragments.GameActivity.OneFragmentGame">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_fixture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<LinearLayout-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:elevation="16dp"-->
+
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_weight="1">-->
+        <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/wl"-->
+        <!--android:background="@drawable/roundwl"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:padding="25dp"-->
+        <!--android:layout_margin="16dp"/>-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAlignment="center"-->
+        <!--android:text="Weightlifting"-->
+        <!--android:textColor="@android:color/holo_blue_dark"/>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:elevation="16dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--&gt;-->
+        <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/hy"-->
+        <!--android:background="@drawable/roundedhy"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:padding="25dp"-->
+        <!--android:layout_margin="16dp"/>-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Hockey"-->
+        <!--android:textColor="@android:color/holo_red_dark" />-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:elevation="16dp"-->
+        <!--android:layout_weight="1"-->
+
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--&gt;-->
+        <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/tt"-->
+        <!--android:background="@drawable/roundtt"-->
+        <!--android:padding="25dp"-->
+        <!--android:backgroundTint="@color/cardview_dark_background"-->
+        <!--android:layout_margin="16dp"-->
+        <!--android:layout_height="100dp" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Table Tennis"-->
+        <!--android:textColor="@android:color/holo_green_dark" />-->
+        <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+    </android.support.v7.widget.LinearLayoutCompat>
+</FrameLayout>

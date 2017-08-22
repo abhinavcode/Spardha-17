@@ -20,66 +20,13 @@ import android.widget.TextView;
 
 import com.abc.spardha17.R;
 import com.abc.spardha17.activity.Game;
+import com.abc.spardha17.fragments.Strings.strings;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-
-    private String[] titles = {"Athletics",
-            "Badminton",
-            "Basketball",
-            "Boxing",
-            "Carrom",
-            "Chess",
-            "Cricket",
-            "Football",
-            "Handball",
-            "Hockey",
-            "Kabaddi",
-            "Lawn Tennis",
-            "Squash",
-            "Table Tennis",
-            "Taekwando",
-            "Volleyball",
-            "Weightlifting"
-    };
-
-    private String[] colors = {"#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1"
-    };
-
-    private int[] images = { R.drawable.wl,
-            R.drawable.hy,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.wl,
-            R.drawable.hy,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.wl,
-            R.drawable.hy,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.wl,
-            R.drawable.wl,
-            R.drawable.hy,
-            R.drawable.tt,
-            R.drawable.tt,
-             };
-
+    strings item1=new strings();
+    private String[] titles = item1.titles;
+    private int[] images = item1.icons;
+    private String[] colors=item1.colors;
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
@@ -90,9 +37,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.itemTitle.setText(titles[i]);
+//        viewHolder.itemTitle.setText(titles[i]);
         viewHolder.itemImage.setImageResource(images[i]);
-        viewHolder.itemTitle.setTextColor(Color.parseColor(colors[i]));
+//        viewHolder.itemTitle.setTextColor(Color.parseColor(colors[i]));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             viewHolder.itemImage.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colors[i])));
         }
@@ -113,7 +60,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ViewHolder(final View itemView) {
             super(itemView);
             itemImage = (ImageView)itemView.findViewById(R.id.imageofs);
-            itemTitle = (TextView)itemView.findViewById(R.id.textofs);
+//            itemTitle = (TextView)itemView.findViewById(R.id.textofs);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {

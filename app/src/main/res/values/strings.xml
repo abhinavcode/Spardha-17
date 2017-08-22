@@ -94,4 +94,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_launch">Launch</string>
+    <string name="title_activity_our_team">Our Team</string>
 </resources>
