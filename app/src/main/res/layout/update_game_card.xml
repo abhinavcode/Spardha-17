@@ -7,12 +7,13 @@
     android:layout_margin="4dp"
     android:clickable="true"
     android:foreground="?selectableItemBackground"
-    card_view:cardBackgroundColor="#BEffca28"
+    card_view:cardBackgroundColor="@null"
     card_view:cardCornerRadius="5dp"
     card_view:cardElevation="3dp"
     card_view:contentPadding="4dp">
 
     <LinearLayout
+        android:background="@drawable/corners"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="16dp"

@@ -43,13 +43,13 @@
         </activity>
         <activity
             android:name=".activity.Launch"
-            android:label="@string/title_activity_launch"
+            android:label="Spardha 17"
             android:theme="@style/MyMaterialTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".activity.ourTeam"
@@ -59,11 +59,52 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.abc.spardha17.activity.Launch" />
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="fb" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.Informals"
+            android:label="@string/title_activity_informals"
+            android:parentActivityName=".activity.Launch"
+            android:theme="@style/MyMaterialTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.abc.spardha17.activity.Launch" />
+        </activity>
+        <activity
+            android:name=".activity.AboutUs"
+            android:label="@string/title_activity_about_us"
+            android:parentActivityName=".activity.Launch"
+            android:theme="@style/MyMaterialTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.abc.spardha17.activity.Launch" />
+        </activity>
+        <activity
+            android:name=".activity.Gallery"
+            android:label="@string/title_activity_gallery"
+            android:parentActivityName=".activity.Launch"
+            android:theme="@style/MyMaterialTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.abc.spardha17.activity.Launch" />
+        </activity>
+        <activity
+            android:name=".activity.Spardha17"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_spardha17"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

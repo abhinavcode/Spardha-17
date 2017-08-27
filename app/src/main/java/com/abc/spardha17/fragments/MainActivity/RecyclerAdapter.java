@@ -66,7 +66,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 @Override public void onClick(View v) {
                     int position = getAdapterPosition();
                     Intent intent = new Intent(itemView.getContext(), Game.class);
-                    // create the transition animation - the images in the layouts
+                    // create the transition animation - the imagecontainer in the layouts
                     // of both activities are defined with android:transitionName="robot"
                     ActivityOptions options = ActivityOptions
                             .makeSceneTransitionAnimation((Activity) itemView.getContext(), itemView, "game");

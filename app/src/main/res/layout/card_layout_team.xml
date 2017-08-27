@@ -7,14 +7,14 @@
     android:layout_margin="4dp"
     android:clickable="true"
     android:foreground="?selectableItemBackground"
-    card_view:cardBackgroundColor="#000000"
+    card_view:cardBackgroundColor="@null"
     card_view:cardCornerRadius="5dp"
     card_view:cardElevation="3dp"
     card_view:contentPadding="4dp">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:background="@drawable/corners"
         android:orientation="horizontal">
 
         <ImageView
@@ -36,7 +36,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name of person"
-                android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -45,8 +44,7 @@
                 android:id="@+id/post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Designation"
-                android:textColor="@android:color/white" />
+                android:text="Designation" />
 
         </LinearLayout>
 
@@ -62,8 +60,7 @@
                 android:id="@+id/call"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:src="@drawable/call"
-                android:tint="@android:color/white" />
+                android:src="@drawable/call" />
             <ImageView
                 android:layout_marginLeft="8dp"
                 android:id="@+id/fb"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Spardha17</string>
+    <string name="app_name">Spardha</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -96,4 +96,11 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_launch">Launch</string>
     <string name="title_activity_our_team">Our Team</string>
+    <string name="title_activity_informals">Informals</string>
+    <string name="title_activity_about_us">About Us</string>
+    <string name="title_activity_gallery">Gallery</string>
+
+    <string name="title_activity_spardha17">Spardha</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

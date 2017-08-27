@@ -7,8 +7,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.abc.spardha17.activity.JSONParse.names;
-import static com.abc.spardha17.activity.JSONParse.urls;
+import static com.abc.spardha17.activity.Launchbackend.JSONParse.names;
+import static com.abc.spardha17.activity.Launchbackend.JSONParse.urls;
 
 /**
  * Created by abhinav on 8/15/2017.

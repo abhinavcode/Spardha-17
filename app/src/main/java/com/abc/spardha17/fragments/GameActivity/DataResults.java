@@ -1,46 +1,29 @@
 package com.abc.spardha17.fragments.GameActivity;
 
 /**
- * Created by abhinav on 6/25/2017.
+ * Created by abhinav on 8/24/2017.
  */
 
 public class DataResults {
     private String eventName = "";
-    private String location = "";
-    private String datetime = "";
     private String team1 = "";
     private String team2 = "";
+    private String winner = "";
 
-    public DataResults(String eventName, String location, String datetime, String team1, String team2) {
+    public DataResults(String eventName, String team1, String team2, String winner) {
         this.eventName = eventName;
-        this.location = location;
-        this.datetime = datetime;
         this.team1 = team1;
         this.team2 = team2;
+        this.winner = winner;
     }
 
     public String getEventName() {
+
         return eventName;
     }
 
     public void setEventName(String eventName) {
         this.eventName = eventName;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getDatetime() {
-        return datetime;
-    }
-
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
     }
 
     public String getTeam1() {
@@ -57,5 +40,13 @@ public class DataResults {
 
     public void setTeam2(String team2) {
         this.team2 = team2;
+    }
+
+    public String getWinner() {
+        return winner;
+    }
+
+    public void setWinner(String winner) {
+        this.winner = winner;
     }
 }

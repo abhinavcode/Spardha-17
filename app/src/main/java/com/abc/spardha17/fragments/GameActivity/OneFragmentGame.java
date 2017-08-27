@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.abc.spardha17.R;
 import com.abc.spardha17.app.AppController;
+import com.abc.spardha17.fragments.Strings.strings;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -26,11 +27,11 @@ import java.util.List;
 
 
 public class OneFragmentGame extends Fragment {
-    List<DataResults> resultdata = new ArrayList<>();
+    List<DataFixtures> resultdata = new ArrayList<>();
     RecyclerView recyclerView;
     GridLayoutManager gridlayoutManager;
-    RecyclerAdapterGame adapter;
-
+    RecyclerAdapterFixtures adapter;
+    String url;
     public OneFragmentGame() {
         // Required empty public constructor
     }
@@ -45,6 +46,14 @@ public class OneFragmentGame extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_game_fixture, container, false);
+        strings s=new strings();
+        Bundle bundle = this.getArguments();
+        int position=0;
+        if (bundle != null) {
+            position = bundle.getInt("position", 0);
+        }
+        url=s.fixtures[position];
+//        url="https://quarkbackend.com/getfile/eternaldivine100/basketballfix";
         recyclerView =
                 (RecyclerView) v.findViewById(R.id.recycler_view_fixture);
 
@@ -54,7 +63,7 @@ public class OneFragmentGame extends Fragment {
         recyclerView.setLayoutManager(gridlayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        adapter = new RecyclerAdapterGame(getActivity().getBaseContext(), resultdata);
+        adapter = new RecyclerAdapterFixtures(getActivity().getBaseContext(), resultdata);
         recyclerView.setAdapter(adapter);
         resultdata.clear();
 //        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -74,7 +83,6 @@ public class OneFragmentGame extends Fragment {
 
     private void getdatafromserver() {
         String tag_json_arry = "json_array_req";
-        String url = "https://quarkbackend.com/getfile/eternaldivine100/basketball";
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
@@ -88,11 +96,11 @@ public class OneFragmentGame extends Fragment {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject jresponse = response.getJSONObject(i);
-                                DataResults data = new DataResults(jresponse.getString("name"), " sad", " as", "ds ", "ds ");
+                                DataFixtures data = new DataFixtures(jresponse.getString("eventname"), jresponse.getString("location"), jresponse.getString("datetime"), jresponse.getString("team1"),jresponse.getString("team2"));
                                 resultdata.add(data);
-                                adapter.notifyDataSetChanged();
                             }
 
+                            adapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

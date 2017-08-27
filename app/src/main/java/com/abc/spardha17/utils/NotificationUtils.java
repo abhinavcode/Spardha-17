@@ -184,7 +184,7 @@ public class NotificationUtils {
     }
 
     /**
-     * Downloading push notification image before displaying it in
+     * Downloading push notification imagecontainer before displaying it in
      * the notification tray
      */
     public Bitmap getBitmapFromURL(String strURL) {

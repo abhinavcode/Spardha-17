@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.abc.spardha17.R;
-import com.abc.spardha17.fragments.MainActivity.ThreeFragment;
 import com.abc.spardha17.fragments.MainActivity.TwoFragment;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 //        adapter.addFragment(new OneFragment(), "RECENT");
         adapter.addFragment(new TwoFragment(), "EVENTS");
-        adapter.addFragment(new ThreeFragment(), "INFORMALS");
+//        adapter.addFragment(new ThreeFragment(), "INFORMALS");
 
         viewPager.setAdapter(adapter);
     }

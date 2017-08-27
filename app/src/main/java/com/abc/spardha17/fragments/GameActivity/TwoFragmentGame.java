@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.abc.spardha17.R;
 import com.abc.spardha17.app.AppController;
+import com.abc.spardha17.fragments.Strings.strings;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -29,7 +30,9 @@ public class TwoFragmentGame extends android.support.v4.app.Fragment {
     List<DataResults> resultdata = new ArrayList<>();
     RecyclerView recyclerView;
     GridLayoutManager gridlayoutManager;
-    RecyclerAdapterGame adapter;
+    RecyclerAdapterResults adapter;
+    String url ;
+
 
     public TwoFragmentGame() {
         // Required empty public constructor
@@ -45,8 +48,16 @@ public class TwoFragmentGame extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.updates_game, container, false);
-            recyclerView =
-                    (RecyclerView) v.findViewById(R.id.recycler_view1);
+        strings s=new strings();
+        Bundle bundle = this.getArguments();
+        int position=0;
+        if (bundle != null) {
+            position = bundle.getInt("position", 0);
+        }
+        url=s.results[position];
+//        url="https://quarkbackend.com/getfile/eternaldivine100/basketball";
+        recyclerView =
+                    (RecyclerView) v.findViewById(R.id.recycler_view_res);
 
             getdatafromserver();
 
@@ -54,7 +65,7 @@ public class TwoFragmentGame extends android.support.v4.app.Fragment {
             recyclerView.setLayoutManager(gridlayoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-            adapter = new RecyclerAdapterGame(getActivity().getBaseContext(), resultdata);
+            adapter = new RecyclerAdapterResults(getActivity().getBaseContext(), resultdata);
             recyclerView.setAdapter(adapter);
             resultdata.clear();
 //        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -74,7 +85,6 @@ public class TwoFragmentGame extends android.support.v4.app.Fragment {
 
     private void getdatafromserver() {
         String tag_json_arry = "json_array_req";
-        String url = "https://quarkbackend.com/getfile/eternaldivine100/basketball";
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
@@ -88,11 +98,11 @@ public class TwoFragmentGame extends android.support.v4.app.Fragment {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject jresponse = response.getJSONObject(i);
-                                DataResults data = new DataResults(jresponse.getString("name"), " sad", " as", "ds ", "ds ");
+                                DataResults data = new DataResults(jresponse.getString("eventname"), jresponse.getString("team1"),jresponse.getString("team2"),jresponse.getString("winner"));
                                 resultdata.add(data);
-                                adapter.notifyDataSetChanged();
                             }
 
+                            adapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.abc.spardha17.R;
+import com.abc.spardha17.fragments.GameActivity.FourFragmentGame;
 import com.abc.spardha17.fragments.GameActivity.OneFragmentGame;
 import com.abc.spardha17.fragments.GameActivity.ThreeFragmentGame;
 import com.abc.spardha17.fragments.GameActivity.TwoFragmentGame;
@@ -63,9 +64,24 @@ public class Game extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragmentGame(), "FIXTURES");
-        adapter.addFragment(new TwoFragmentGame(), "RESULTS");
-        adapter.addFragment(new ThreeFragmentGame(), "CONTACTS");
+        viewPager.setOffscreenPageLimit(4);
+        Fragment fixtures=new OneFragmentGame();
+        Bundle bundle = new Bundle();
+        bundle.putInt("position", position);
+        fixtures.setArguments(bundle);
+        adapter.addFragment(fixtures, "FIXTURES");
+
+        Fragment results=new TwoFragmentGame();
+        results.setArguments(bundle);
+        adapter.addFragment(results, "RESULTS");
+
+        Fragment contacts=new ThreeFragmentGame();
+        contacts.setArguments(bundle);
+        adapter.addFragment(contacts, "CONTACTS");
+
+        Fragment fame=new FourFragmentGame();
+        fame.setArguments(bundle);
+        adapter.addFragment(fame,"HALL OF FAME");
         viewPager.setAdapter(adapter);
     }
 

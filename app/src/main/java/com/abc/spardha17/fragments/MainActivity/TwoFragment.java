@@ -34,6 +34,8 @@ public class TwoFragment extends android.support.v4.app.Fragment {
 
 //        layoutManager = new GridLayoutManager(getContext(),Gri,false);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(getContext(),3);
+//        gridLayoutManager.getColumnCountForAccessibility(recyclerView,recyclerView.getScrollState());
 
         adapter = new RecyclerAdapter();
         recyclerView.setAdapter(adapter);
