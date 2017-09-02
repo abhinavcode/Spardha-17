@@ -37,7 +37,7 @@ public class ourTeam extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_team);
 
-        GridLayoutManager gridlayoutManager = new GridLayoutManager(getBaseContext(),1);
+        GridLayoutManager gridlayoutManager = new GridLayoutManager(getBaseContext(),2);
         mRecyclerView.setLayoutManager(gridlayoutManager);
 
         sendRequest();

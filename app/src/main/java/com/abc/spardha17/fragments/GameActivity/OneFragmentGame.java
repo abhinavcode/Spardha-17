@@ -96,7 +96,7 @@ public class OneFragmentGame extends Fragment {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject jresponse = response.getJSONObject(i);
-                                DataFixtures data = new DataFixtures(jresponse.getString("eventname"), jresponse.getString("location"), jresponse.getString("datetime"), jresponse.getString("team1"),jresponse.getString("team2"));
+                                DataFixtures data = new DataFixtures(jresponse.getString("eventname"), jresponse.getString("location"), jresponse.getString("date"),jresponse.getString("time"), jresponse.getString("team1"),jresponse.getString("team2"));
                                 resultdata.add(data);
                             }
 

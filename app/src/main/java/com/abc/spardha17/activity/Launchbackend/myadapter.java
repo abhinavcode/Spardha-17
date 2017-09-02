@@ -32,8 +32,8 @@ public class myadapter extends RecyclerView.Adapter<myadapter.ViewHolder> {
             super(v);
             text = (TextView) v.findViewById(R.id.text);
             imageView = (ImageView) v.findViewById(R.id.icon);
-            content=(TextView)v.findViewById(R.id.content);
-            textHead=(LinearLayout)v.findViewById(R.id.textHead);
+//            content=(TextView)v.findViewById(R.id.content);
+//            textHead=(LinearLayout)v.findViewById(R.id.textHead);
             int width = v.getContext().getResources().getDisplayMetrics().widthPixels;
             int height = v.getContext().getResources().getDisplayMetrics().heightPixels; android.view.ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
 
@@ -73,9 +73,10 @@ public class myadapter extends RecyclerView.Adapter<myadapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         System.out.println("lets see "+mDataset.get(position).getName());
-        System.out.println("ktb");
+        System.out.println("ktb " +
+                "");
         holder.text.setText(mDataset.get(position).getName());
-        holder.content.setText(mDataset.get(position).getContent());
+//        holder.content.setText(mDataset.get(position).getContent());
 
         System.out.println("lets see "+mDataset.get(position).getUrl());
         Glide.with(holder.imageView.getContext()).load(mDataset.get(position).getUrl()).into(holder.imageView);

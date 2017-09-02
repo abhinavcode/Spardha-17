@@ -2,6 +2,7 @@ package com.abc.spardha17.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
@@ -85,6 +86,11 @@ public class Spardha17 extends AppCompatActivity {
             }
 
         }, 2000L);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+
 
         // Set up the user interaction to manually show or hide the system UI.
     }

@@ -7,79 +7,100 @@
     android:layout_margin="4dp"
     android:clickable="true"
     android:foreground="?selectableItemBackground"
-    card_view:cardBackgroundColor="@null"
+    card_view:cardBackgroundColor="#99000000"
     card_view:cardCornerRadius="5dp"
-    card_view:cardElevation="3dp"
-    card_view:contentPadding="4dp">
+    card_view:cardElevation="3dp">
 
     <LinearLayout
-        android:background="@drawable/corners"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="16dp"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:padding="1dp"
+            android:layout_margin="0dp"
+            android:orientation="horizontal">
 
+            <!--android:background="#99000000"-->
             <TextView
-                android:id="@+id/eventname"
-                android:layout_width="match_parent"
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:textColor="@color/navigationBarColor"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
-                android:text="Event Name"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textStyle="bold" />
+                android:text="date"
+                android:gravity="left"
+                android:layout_gravity="left"/>
 
             <TextView
                 android:id="@+id/location"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right|end"
+                android:foregroundGravity="right"
+                android:gravity="right"
                 android:text="Location"
-                android:textAlignment="center"
-                android:textColor="@color/navigationBarColor" />
-
-            <TextView
-                android:id="@+id/datetime"
-                android:layout_width="wrap_content"
+                android:textColor="@color/navigationBarColor"
+                android:textStyle="bold" />
+    </LinearLayout>
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="date,time"
-                android:textAlignment="center" />
-
-        </LinearLayout>
+                android:orientation="horizontal"
+                android:layout_margin="0dp"
+                android:elevation="4dp"
+                android:background="@color/navigationBarColor">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="time"
+                    android:id="@+id/time"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/eventname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Event Name"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="0dp"
+            android:padding="8dp"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:background="#ffffff">
 
             <TextView
                 android:id="@+id/team1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="n-a"
-                android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:src="@drawable/vs" />
+                android:layout_gravity="center_vertical"
+                android:text="n-a"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/team2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_weight="1"
+                android:layout_gravity="end|center_vertical"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
                 android:foregroundGravity="right"
                 android:gravity="right"
                 android:text="n-a"

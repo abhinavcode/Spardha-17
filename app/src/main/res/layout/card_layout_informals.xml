@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/imginformal"
             android:scaleType="center"
-            android:src="@drawable/volleyball" />
+            android:src="@null" />
 
     <TextView
         android:id="@+id/textinformal"

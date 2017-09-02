@@ -174,27 +174,38 @@ public class strings {
             "https://quarkbackend.com/getfile/eternaldivine100/weightliftingcon"
     };
     public String[] halloffame = {
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2ECC71",
-            "#F4D03F",
-            "#e2361f",
-            "#2E86C1",
-            "#2E86C1",
-            "#2E86C1",
-            "#2E86C1",
-            "#2E86C1"
+            "IIT(BHU), Varanasi",
+            "IIT Kanpur (Boys)\n" + "NIT Rourkela (Girls)",
+            "IIT KGP (Boys)\n" +
+                    "BIT Mesra (Girls)",
+            "ZHCET (Boys)\n" +
+                    "IIT (BHU), Varanasi (Girls)",
+            "IIT (BHU), Varanasi (Boys)",
+            "IIT (BHU), Varanasi (Boys)\n" +
+                    "REC (Girls)",
+            "IIT (BHU), Varanasi (Boys)\n" +
+                    "NIT K (Girls)",
+            "IIT(BHU), Varanasi",
+            "MANIT" ,
+            "IIT(BHU), Varanasi",
+            "IIT (BHU), Varanasi (Boys)",
+            "NIT Rourkela (Boys)\n" +
+                    "GWECA (Girls)",
+            "IIT (BHU), Varanasi (Boys)\n" +
+                    "GWECA (Girls)",
+            "Will be Updated Soon !",
+            "IIT (BHU), Varanasi (Boys)\n" +
+                    "MITS (Girls)",
+
+            "IIT Kanpur",
+            "IIT (BHU), Varanasi" ,
+            "IMT GZD (Boys)\n" +
+                    "IIIT Delhi (Girls)",
+            "IIT (BHU), Varanasi (Boys)\n" +
+                    "IIT (BHU), Varanasi (Girls)",
+            "IIT (BHU), Varanasi (Boys)\n" +
+                    "IIT Kanpur (Girls)",
+            "IIT Kanpur (Boys)"
     };
 
 }

@@ -27,8 +27,8 @@
             android:background="@drawable/images"
             android:fitsSystemWindows="true"
             android:transitionName="game"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:contentScrim="?attr/colorAccent"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|enterAlways">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar1"
@@ -61,6 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
+
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior" />
     <!--<android.support.design.widget.FloatingActionButton-->
     <!--android:id="@+id/fab"-->

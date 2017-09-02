@@ -18,13 +18,13 @@
         android:elevation="16dp"
         android:background="@drawable/corners"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
@@ -32,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Event Name"
+                android:layout_gravity="center_vertical"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textStyle="bold" />
@@ -48,14 +49,17 @@
                 android:id="@+id/team1res"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:text="n-a"
+                android:textColor="#ff1744"
                 android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|center_horizontal"
                 android:layout_weight="1"
                 android:src="@drawable/vs" />
 
@@ -63,9 +67,10 @@
                 android:id="@+id/team2res"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:layout_gravity="end|center_vertical"
                 android:layout_weight="1"
                 android:foregroundGravity="right"
+                android:textColor="#ff1744"
                 android:gravity="right"
                 android:text="n-a"
                 android:textStyle="bold" />
@@ -76,16 +81,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/winnerres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Event Name"
+                android:text="Winner"
                 android:textAlignment="center"
-                android:textColor="@android:color/holo_red_dark"
+                android:textColor="@color/navigationBarColor"
                 android:textStyle="bold" />
 
         </LinearLayout>

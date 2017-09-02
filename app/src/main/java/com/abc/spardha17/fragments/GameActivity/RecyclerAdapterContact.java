@@ -3,6 +3,7 @@ package com.abc.spardha17.fragments.GameActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,17 +26,19 @@ public class RecyclerAdapterContact extends RecyclerView.Adapter<RecyclerAdapter
 
 private List<DataContacts> mDataset;
 public class ViewHolder extends RecyclerView.ViewHolder {
-
+    public TextView designation;
     public TextView name;
     public ImageView contact;
-
+    public CardView cardView;
     public ViewHolder(View v) {
         super(v);
+        cardView=(CardView)v.findViewById(R.id.card_view_contact);
         name = (TextView) v.findViewById(R.id.namePlayer);
         contact=(ImageView)v.findViewById(R.id.callPlayer);
+        designation=(TextView)v.findViewById(R.id.designation);
 
 
-        contact.setOnClickListener(new View.OnClickListener() {
+        cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = getAdapterPosition();
@@ -77,7 +80,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
         holder.name.setText(mDataset.get(position).getNameofperson());
-
+        holder.designation.setText(mDataset.get(position).getDesignation());
     }
     @Override
     public int getItemCount() {

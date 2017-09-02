@@ -11,14 +11,24 @@ public class DataFixtures {
     private String team1 = "";
     private String team2 = "";
 
-    public DataFixtures(String eventName, String location, String datetime, String team1, String team2) {
+
+    private String time="";
+    public DataFixtures(String eventName, String location, String datetime,String time, String team1, String team2) {
         this.eventName = eventName;
         this.location = location;
         this.datetime = datetime;
         this.team1 = team1;
         this.team2 = team2;
+        this.time=time;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
     public String getEventName() {
         return eventName;
     }

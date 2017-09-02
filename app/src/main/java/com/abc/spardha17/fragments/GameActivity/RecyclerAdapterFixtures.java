@@ -46,9 +46,10 @@ public class RecyclerAdapterFixtures extends RecyclerView.Adapter<RecyclerAdapte
 //        data();
         viewHolder.eventName.setText(t.get(i).getEventName());
         viewHolder.location.setText(t.get(i).getLocation());
-        viewHolder.dateTime.setText(t.get(i).getDatetime());
+        viewHolder.date.setText(t.get(i).getDatetime());
         viewHolder.team1.setText(t.get(i).getTeam1());
         viewHolder.team2.setText(t.get(i).getTeam2());
+        viewHolder.time1.setText(t.get(i).getTime());
     }
 
     @Override
@@ -61,7 +62,8 @@ public class RecyclerAdapterFixtures extends RecyclerView.Adapter<RecyclerAdapte
         public int currentItem;
         public TextView eventName;
         public TextView location;
-        public TextView dateTime;
+        public TextView date;
+        public TextView time1;
         public TextView team1;
         public TextView team2;
 
@@ -69,10 +71,10 @@ public class RecyclerAdapterFixtures extends RecyclerView.Adapter<RecyclerAdapte
             super(itemView);
             eventName = (TextView) itemView.findViewById(R.id.eventname);
             location = (TextView) itemView.findViewById(R.id.location);
-            dateTime = (TextView) itemView.findViewById(R.id.datetime);
+            date = (TextView) itemView.findViewById(R.id.date);
             team1 = (TextView) itemView.findViewById(R.id.team1);
             team2 = (TextView) itemView.findViewById(R.id.team2);
-
+            time1=(TextView)itemView.findViewById(R.id.time);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

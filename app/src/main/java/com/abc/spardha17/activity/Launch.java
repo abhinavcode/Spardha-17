@@ -3,6 +3,7 @@ package com.abc.spardha17.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -50,6 +51,14 @@ public class Launch extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+//        toolbar.setBackground();
+        actionBar.hide();
+//        getWindow().getDecorView().setSystemUiVisibility(
+//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+//        getWindow().setStatusBarColor(Color.WHITE);
+
         icon1=(ImageView)findViewById(R.id.icon1);
         content1=(TextView)findViewById(R.id.content1);
         text1=(TextView)findViewById(R.id.text1);
