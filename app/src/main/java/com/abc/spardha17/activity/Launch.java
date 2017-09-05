@@ -1,7 +1,9 @@
 package com.abc.spardha17.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.abc.spardha17.R;
 import com.abc.spardha17.activity.Launchbackend.JSONParse;
@@ -25,6 +26,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class Launch extends AppCompatActivity {
+    public static final String JSON_URL = "https://quarkbackend.com/getfile/eternaldivine100/launch";
 //    List<DataFixtures> resultdata = new ArrayList<>();
 //    RecyclerView recyclerView;
 //    GridLayoutManager gridlayoutManager;
@@ -36,7 +38,7 @@ public class Launch extends AppCompatActivity {
     public TextView content1;
     public ImageView icon1;
     List<movie> mDataset;
-    public static final String JSON_URL = "https://quarkbackend.com/getfile/eternaldivine100/launch";
+    SharedPreferences sharedpreferences;
 
 //    private FloatingActionButton events;
 //    private FloatingActionButton ourTeam;
@@ -58,6 +60,7 @@ public class Launch extends AppCompatActivity {
 //                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 //                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 //        getWindow().setStatusBarColor(Color.WHITE);
+        sharedpreferences = getSharedPreferences("Launch", Context.MODE_PRIVATE);
 
         icon1=(ImageView)findViewById(R.id.icon1);
         content1=(TextView)findViewById(R.id.content1);
@@ -98,7 +101,13 @@ public class Launch extends AppCompatActivity {
                 startActivity(new Intent(Launch.this,Gallery.class));
             }
         });
-
+        String response = sharedpreferences.getString("response", null);
+        if (response != null) {
+            JSONParse pj = new JSONParse();
+            pj.parseJSON(response);
+            mDataset = pj.getMovies();
+            loadData();
+        }
 //        menu= (FloatingActionMenu) findViewById(R.id.menu_down);
 //        events=(FloatingActionButton)findViewById(R.id.events);
 //        maps=(FloatingActionButton)findViewById(R.id.maps);
@@ -155,25 +164,25 @@ public class Launch extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString("response", response);
+                        editor.commit();
                         JSONParse pj = new JSONParse();
                         pj.parseJSON(response);
                         mDataset = pj.getMovies();
 //                        mAdapter = new myadapter(mDataset);
 //                        mRecyclerView.setAdapter(mAdapter);
 //                        mDataset.get(0).
-                        System.out.println("hey"+mDataset.get(0).getName());
-                        text1.setText(mDataset.get(0).getName());
-                        content1.setText(mDataset.get(0).getContent());
-                        System.out.println("hey hey "+mDataset.get(0).getUrl());
-                        Glide.with(icon1.getContext()).load(mDataset.get(0).getUrl()).into(icon1);
-
+                        loadData();
                         pDialog.dismiss();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Launch.this,"No Internet connection",Toast.LENGTH_LONG).show();
+//                        Toast.makeText(Launch.this,"No Internet connection",Toast.LENGTH_LONG).show();
+
                         pDialog.dismiss();
 
                     }
@@ -182,6 +191,15 @@ public class Launch extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
+    }
+
+    public void loadData() {
+
+        System.out.println("hey" + mDataset.get(0).getName());
+        text1.setText(mDataset.get(0).getName());
+        content1.setText(mDataset.get(0).getContent());
+        System.out.println("hey hey " + mDataset.get(0).getUrl());
+        Glide.with(icon1.getContext()).load(mDataset.get(0).getUrl()).into(icon1);
     }
 
 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.abc.spardha17.R;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
@@ -22,29 +23,11 @@ public class myadapter extends RecyclerView.Adapter<myadapter.ViewHolder> {
 
 
     private List<movie> mDataset;
-    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView text;
-        public ImageView imageView;
-        public TextView content;
-        public LinearLayout textHead;
-        public ViewHolder(View v) {
-            super(v);
-            text = (TextView) v.findViewById(R.id.text);
-            imageView = (ImageView) v.findViewById(R.id.icon);
-//            content=(TextView)v.findViewById(R.id.content);
-//            textHead=(LinearLayout)v.findViewById(R.id.textHead);
-            int width = v.getContext().getResources().getDisplayMetrics().widthPixels;
-            int height = v.getContext().getResources().getDisplayMetrics().heightPixels; android.view.ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-
-            layoutParams.width = width;
-            layoutParams.height = height/2;
-            imageView.setLayoutParams(layoutParams);
-
-//            layoutParams.height = height/2-60;
-//            textHead.setLayoutParams(layoutParams);
-        }
+    public myadapter(List<movie> myDataset) {
+        mDataset = myDataset;
     }
+
     public void add(int position, movie item) {
         mDataset.add(position, item);
         notifyItemInserted(position);
@@ -54,9 +37,7 @@ public class myadapter extends RecyclerView.Adapter<myadapter.ViewHolder> {
         mDataset.remove(position);
         notifyItemRemoved(position);
     }
-    public myadapter(List<movie> myDataset) {
-        mDataset = myDataset;
-    }
+
     @Override
     public myadapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
@@ -69,6 +50,7 @@ public class myadapter extends RecyclerView.Adapter<myadapter.ViewHolder> {
 
 
     }
+
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
@@ -79,15 +61,43 @@ public class myadapter extends RecyclerView.Adapter<myadapter.ViewHolder> {
 //        holder.content.setText(mDataset.get(position).getContent());
 
         System.out.println("lets see "+mDataset.get(position).getUrl());
-        Glide.with(holder.imageView.getContext()).load(mDataset.get(position).getUrl()).into(holder.imageView);
+        Glide.with(holder.imageView.getContext()).load(mDataset.get(position).getUrl())
+                .diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.imageView);
 
 
     }
+
     @Override
     public int getItemCount() {
         if(mDataset!=null)
         return mDataset.size();
         else return 0;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView text;
+        public ImageView imageView;
+        public TextView content;
+        public LinearLayout textHead;
+
+        public ViewHolder(View v) {
+            super(v);
+            text = (TextView) v.findViewById(R.id.text);
+            imageView = (ImageView) v.findViewById(R.id.icon);
+//            content=(TextView)v.findViewById(R.id.content);
+//            textHead=(LinearLayout)v.findViewById(R.id.textHead);
+            int width = v.getContext().getResources().getDisplayMetrics().widthPixels;
+            int height = v.getContext().getResources().getDisplayMetrics().heightPixels;
+            android.view.ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+
+            layoutParams.width = width;
+            layoutParams.height = height / 2;
+            imageView.setLayoutParams(layoutParams);
+
+//            layoutParams.height = height/2-60;
+//            textHead.setLayoutParams(layoutParams);
+        }
     }
 
 

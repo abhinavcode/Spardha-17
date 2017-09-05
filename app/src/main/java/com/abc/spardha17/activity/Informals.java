@@ -1,12 +1,13 @@
 package com.abc.spardha17.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
 import com.abc.spardha17.R;
 import com.abc.spardha17.activity.Informalbackend.JSONParseinformal;
@@ -21,11 +22,12 @@ import com.android.volley.toolbox.Volley;
 import java.util.List;
 
 public class Informals extends AppCompatActivity {
+    public static final String JSON_URL = "https://quarkbackend.com/getfile/eternaldivine100/informals";
+    List<informalcontainer> mDataset;
+    SharedPreferences sharedpreferences;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    List<informalcontainer> mDataset;
-    public static final String JSON_URL = "https://quarkbackend.com/getfile/eternaldivine100/informals";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class Informals extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_informals);
+        sharedpreferences = getSharedPreferences("Informals", Context.MODE_PRIVATE);
 
         GridLayoutManager gridlayoutManager = new GridLayoutManager(getBaseContext(),1);
         mRecyclerView.setLayoutManager(gridlayoutManager);
@@ -54,6 +57,10 @@ public class Informals extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString("response", response);
+                        editor.commit();
                         JSONParseinformal pj = new JSONParseinformal();
                         pj.parseJSONInformal(response);
                         mDataset = pj.getItems();
@@ -66,7 +73,15 @@ public class Informals extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Informals.this,"No Internet connection",Toast.LENGTH_LONG).show();
+//                        Toast.makeText(Informals.this,"No Internet connection",Toast.LENGTH_LONG).show();
+                        String response = sharedpreferences.getString("response", null);
+                        if (response != null) {
+                            JSONParseinformal pj = new JSONParseinformal();
+                            pj.parseJSONInformal(response);
+                            mDataset = pj.getItems();
+                            mAdapter = new adapter(mDataset);
+                            mRecyclerView.setAdapter(mAdapter);
+                        }
                         pDialog.dismiss();
 
                     }

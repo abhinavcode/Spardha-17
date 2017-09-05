@@ -2,6 +2,8 @@ package com.abc.spardha17.fragments.GameActivity;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -27,12 +29,15 @@ import java.util.List;
  */
 public class ThreeFragmentGame extends Fragment {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerAdapterContact mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     List<DataContacts> mDataset;
 //    public static final String JSON_URL = "https://quarkbackend.com/getfile/eternaldivine100/team";
     String url;
+    SharedPreferences sharedpreferences;
+    int position = 0;
+    private RecyclerView mRecyclerView;
+    private RecyclerAdapterContact mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
     public ThreeFragmentGame() {
         // Required empty public constructor
     }
@@ -54,7 +59,8 @@ public class ThreeFragmentGame extends Fragment {
         mRecyclerView.setLayoutManager(gridlayoutManager);
         strings s=new strings();
         Bundle bundle = this.getArguments();
-        int position=0;
+        sharedpreferences = this.getActivity().getSharedPreferences("Contact", Context.MODE_PRIVATE);
+
         if (bundle != null) {
             position = bundle.getInt("position", 0);
         }
@@ -71,6 +77,10 @@ public class ThreeFragmentGame extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString("responsec" + position, response);
+                        editor.commit();
                         JSONParseteam pj = new JSONParseteam();
                         pj.parseJSONteam(response);
                         mDataset = pj.getData();
@@ -83,6 +93,15 @@ public class ThreeFragmentGame extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 //                        Toast.makeText(getActivity(),"No Internet connection",Toast.LENGTH_LONG).show();
+                        String response = sharedpreferences.getString("responsec" + position, null);
+                        if (response != null) {
+                            JSONParseteam pj = new JSONParseteam();
+                            pj.parseJSONteam(response);
+                            mDataset = pj.getData();
+                            mAdapter = new RecyclerAdapterContact(mDataset);
+                            mRecyclerView.setAdapter(mAdapter);
+
+                        }
                         pDialog.dismiss();
 
                     }

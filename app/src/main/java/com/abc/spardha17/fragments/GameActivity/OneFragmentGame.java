@@ -1,6 +1,8 @@
 package com.abc.spardha17.fragments.GameActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -32,6 +34,9 @@ public class OneFragmentGame extends Fragment {
     GridLayoutManager gridlayoutManager;
     RecyclerAdapterFixtures adapter;
     String url;
+    int position = 0;
+    SharedPreferences sharedpreferences;
+
     public OneFragmentGame() {
         // Required empty public constructor
     }
@@ -48,7 +53,6 @@ public class OneFragmentGame extends Fragment {
         View v = inflater.inflate(R.layout.fragment_game_fixture, container, false);
         strings s=new strings();
         Bundle bundle = this.getArguments();
-        int position=0;
         if (bundle != null) {
             position = bundle.getInt("position", 0);
         }
@@ -56,6 +60,7 @@ public class OneFragmentGame extends Fragment {
 //        url="https://quarkbackend.com/getfile/eternaldivine100/basketballfix";
         recyclerView =
                 (RecyclerView) v.findViewById(R.id.recycler_view_fixture);
+        sharedpreferences = this.getActivity().getSharedPreferences("Fixture", Context.MODE_PRIVATE);
 
         getdatafromserver();
 
@@ -91,6 +96,10 @@ public class OneFragmentGame extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString("response" + position, response.toString());
+                        editor.commit();
                         Log.d(AppController.TAG, response.toString());
                         System.out.println(response.toString());
                         try {
@@ -110,6 +119,22 @@ public class OneFragmentGame extends Fragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+
+                String responses = sharedpreferences.getString("response" + position, null);
+                if (responses != null) {
+                    try {
+                        JSONArray response = new JSONArray(responses);
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject jresponse = response.getJSONObject(i);
+                            DataFixtures data = new DataFixtures(jresponse.getString("eventname"), jresponse.getString("location"), jresponse.getString("date"), jresponse.getString("time"), jresponse.getString("team1"), jresponse.getString("team2"));
+                            resultdata.add(data);
+                        }
+
+                        adapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
                 Log.d(AppController.TAG, "Error: " + error.getMessage());
                 pDialog.hide();
             }

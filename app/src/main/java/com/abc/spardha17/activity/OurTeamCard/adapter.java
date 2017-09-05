@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.abc.spardha17.R;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 
@@ -40,42 +41,8 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
     private Resources mResources;
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView name;
-        public ImageView imageView;
-        public TextView designation;
-        public ImageView contact;
-        public ImageView fb;
-        public WebView webview;
-        public ViewHolder(View v) {
-            super(v);
-            name = (TextView) v.findViewById(R.id.name);
-            imageView = (ImageView) v.findViewById(R.id.icon);
-            designation=(TextView)v.findViewById(R.id.post);
-            contact=(ImageView)v.findViewById(R.id.call);
-            fb=(ImageView)v.findViewById(R.id.fb);
-//            webview=(WebView)v.findViewById(R.id.webview);
-            mResources=v.getResources();
-            contact.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    Intent intent=new Intent(Intent.ACTION_DIAL);
-                    intent.setData(Uri.parse("tel:"+mDataset.get(position).getContact()));
-                    v.getContext().startActivity(intent);
-                }
-            });
-
-            fb.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position=getAdapterPosition();
-                    Intent fbop=getFBIntent(itemView.getContext(),mDataset.get(position).getFb());
-                    v.getContext().startActivity(fbop);
-                }
-            });
-        }
+    public adapter(List<DataContacts> myDataset) {
+        mDataset = myDataset;
     }
 
     public Intent getFBIntent(Context context, String facebookId) {
@@ -107,9 +74,7 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
         mDataset.remove(position);
         notifyItemRemoved(position);
     }
-    public adapter(List<DataContacts> myDataset) {
-        mDataset = myDataset;
-    }
+
     @Override
     public adapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
@@ -122,6 +87,7 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
 
 
     }
+
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
@@ -132,66 +98,16 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
         Glide.with(holder.imageView.getContext())
                 .load(Uri.parse(mDataset.get(position).getImageURL())) // add your image url
                 .transform(new CircleTransform(holder.imageView.getContext())) // applying the image transformer
-                .into(holder.imageView);
+                .diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.imageView);
 
     }
+
     @Override
     public int getItemCount() {
         if(mDataset!=null)
             return mDataset.size();
         else return 0;
     }
-
-
-
-
-
-
-
-
-    public class CircleTransform extends BitmapTransformation {
-        public CircleTransform(Context context) {
-            super(context);
-        }
-
-        @Override protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
-            return circleCrop(pool, toTransform);
-        }
-
-        private Bitmap circleCrop(BitmapPool pool, Bitmap source) {
-            if (source == null) return null;
-
-            int size = Math.min(source.getWidth(), source.getHeight());
-            int x = (source.getWidth() - size) / 2;
-            int y = (source.getHeight() - size) / 2;
-
-            // TODO this could be acquired from the pool too
-            Bitmap squared = Bitmap.createBitmap(source, x, y, size, size);
-
-            Bitmap result = pool.get(size, size, Bitmap.Config.ARGB_8888);
-            if (result == null) {
-                result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
-            }
-
-            Canvas canvas = new Canvas(result);
-            Paint paint = new Paint();
-            paint.setShader(new BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
-            paint.setAntiAlias(true);
-            float r = size / 2f;
-            canvas.drawCircle(r, r, r, paint);
-            return result;
-        }
-
-        @Override public String getId() {
-            return getClass().getName();
-        }
-    }
-
-
-
-
-
-
 
     private RoundedBitmapDrawable createRoundedBitmapDrawableWithBorder(Bitmap bitmap){
         int bitmapWidth = bitmap.getWidth();
@@ -300,6 +216,85 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
 
         // Return the RoundedBitmapDrawable
         return roundedBitmapDrawable;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView name;
+        public ImageView imageView;
+        public TextView designation;
+        public ImageView contact;
+        public ImageView fb;
+        public WebView webview;
+
+        public ViewHolder(View v) {
+            super(v);
+            name = (TextView) v.findViewById(R.id.name);
+            imageView = (ImageView) v.findViewById(R.id.icon);
+            designation = (TextView) v.findViewById(R.id.post);
+            contact = (ImageView) v.findViewById(R.id.call);
+            fb = (ImageView) v.findViewById(R.id.fb);
+//            webview=(WebView)v.findViewById(R.id.webview);
+            mResources = v.getResources();
+            contact.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:" + mDataset.get(position).getContact()));
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            fb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Intent fbop = getFBIntent(itemView.getContext(), mDataset.get(position).getFb());
+                    v.getContext().startActivity(fbop);
+                }
+            });
+        }
+    }
+
+    public class CircleTransform extends BitmapTransformation {
+        public CircleTransform(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
+            return circleCrop(pool, toTransform);
+        }
+
+        private Bitmap circleCrop(BitmapPool pool, Bitmap source) {
+            if (source == null) return null;
+
+            int size = Math.min(source.getWidth(), source.getHeight());
+            int x = (source.getWidth() - size) / 2;
+            int y = (source.getHeight() - size) / 2;
+
+            // TODO this could be acquired from the pool too
+            Bitmap squared = Bitmap.createBitmap(source, x, y, size, size);
+
+            Bitmap result = pool.get(size, size, Bitmap.Config.ARGB_8888);
+            if (result == null) {
+                result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+            }
+
+            Canvas canvas = new Canvas(result);
+            Paint paint = new Paint();
+            paint.setShader(new BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
+            paint.setAntiAlias(true);
+            float r = size / 2f;
+            canvas.drawCircle(r, r, r, paint);
+            return result;
+        }
+
+        @Override
+        public String getId() {
+            return getClass().getName();
+        }
     }
 
 }
