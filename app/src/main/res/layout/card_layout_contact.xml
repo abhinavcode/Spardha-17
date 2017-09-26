@@ -7,21 +7,20 @@
     android:layout_margin="4dp"
     android:clickable="true"
 
-    card_view:cardBackgroundColor="@null"
     android:foreground="?selectableItemBackground"
+    card_view:cardBackgroundColor="@null"
     card_view:cardCornerRadius="5dp"
     card_view:cardElevation="3dp"
     card_view:contentPadding="4dp">
 
         <RelativeLayout
 
-            android:background="@drawable/corners"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:padding="10dp"
-            android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:orientation="vertical">
+            android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/namePlayer"
@@ -32,11 +31,11 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/designation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/designation"
-                android:text="Designation"
-                android:layout_below="@+id/namePlayer"/>
+                android:layout_below="@+id/namePlayer"
+                android:text="Designation" />
 
 
             <ImageView

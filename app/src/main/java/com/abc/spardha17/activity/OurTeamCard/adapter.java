@@ -64,6 +64,17 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
 
     }
 
+    public int getViewTypeCount() {
+        // return the total number of view types. this value should never change
+        // at runtime
+        return 2;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        // return a value between 0 and (getViewTypeCount - 1)
+        return position % 2;
+    }
 
     public void add(int position, DataContacts item) {
         mDataset.add(position, item);
@@ -78,10 +89,15 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
     @Override
     public adapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
-
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout_team, parent, false);
+        View v;
+        int x = getItemViewType(viewType);
+        if (x % 2 == 0) {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout_team, parent, false);
 //        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 //        v.setLayoutParams(lp);
+        } else {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout_team_1, parent, false);
+        }
         ViewHolder vh = new ViewHolder(v);
         return vh;
 
@@ -240,6 +256,7 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
+
                     Intent intent = new Intent(Intent.ACTION_DIAL);
                     intent.setData(Uri.parse("tel:" + mDataset.get(position).getContact()));
                     v.getContext().startActivity(intent);

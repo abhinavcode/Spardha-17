@@ -6,10 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.abc.spardha17.activity.Launch"
-    tools:showIn="@layout/activity_launch"
-    android:orientation="vertical">
+    tools:showIn="@layout/activity_launch">
     <!--<android.support.v7.widget.RecyclerView-->
         <!--android:id="@+id/my_recycler_view"-->
         <!--android:layout_width="match_parent"-->
@@ -32,19 +33,25 @@
             <!--android:layout_marginRight="4dp"-->
             <!--android:layout_marginTop="4dp"-->
 
-            <FrameLayout
+    <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
                 android:orientation="vertical">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_gravity="center"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/lau"
-                    android:layout_height="match_parent"
-                    android:id="@+id/icon1"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center|center_vertical|center_horizontal"
+                android:padding="30dp" />
+        </LinearLayout>
                 <!--android:adjustViewBounds="true"-->
                 <!--android:scaleType="fitCenter"-->
                 <!--<LinearLayout-->
@@ -56,39 +63,39 @@
                     <!--android:gravity="center_vertical"-->
                     <!--android:orientation="vertical">-->
                 <LinearLayout
-                    android:background="#AA000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="100dp"
-                    android:layout_width="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="3"
                     android:gravity="center_horizontal"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical"
+                    android:padding="10dp">
                     <TextView
+                        android:id="@+id/text1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Spardha 2k17"
-                        android:textStyle="bold"
                         android:gravity="center"
-                        android:textColor="#ffffff"
-                        android:textSize="24sp"
-                        android:typeface="normal"
-                        android:id="@+id/text1"/>
+                        android:text="Spardha 2k17"
+                        android:textSize="34sp"
+                        android:typeface="normal" />
                 <!--android:background="@drawable/corners2"-->
 
                     <TextView
                         android:id="@+id/content1"
-                        android:textColor="@android:color/white"
-                        android:typeface="sans"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:autoLink="all"
                         android:gravity="center"
                         android:text="Visit spardha.co.in for more"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:typeface="sans"
                         />
                 </LinearLayout>
                 <!--</LinearLayout>-->
-            </FrameLayout>
+    </LinearLayout>
             <!--</ScrollView>-->
         <!--<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
             <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
@@ -104,60 +111,60 @@
             <!--card_view:contentPadding="4dp">-->
 
         <!--</android.support.v7.widget.CardView>-->
-    <LinearLayout
-        android:layout_marginTop="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_above="@+id/footer"
-        android:background="@android:color/darker_gray">
+    <!--<LinearLayout-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="2dp"-->
+    <!--android:layout_above="@+id/footer"-->
+    <!--android:background="@android:color/darker_gray">-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
         <LinearLayout
 
-            android:gravity="bottom"
             android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="#99ffffff"
-            android:paddingTop="8dp"
+            android:background="#ffffff"
+            android:gravity="bottom"
+            android:orientation="horizontal"
             android:paddingBottom="8dp"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="5"
-            android:orientation="horizontal">
+            android:paddingTop="8dp"
+            android:weightSum="5">
             <LinearLayout
+                android:id="@+id/llevents"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:id="@+id/llevents"
                 android:foreground="?selectableItemBackground"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
 
                     android:src="@drawable/events" />
                 <TextView
-                    android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
-                    android:textColor="@android:color/black"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Events"
+                    android:textColor="@android:color/black"
                     android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:text="Events"/>
+                    android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/llinformals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:foreground="?selectableItemBackground"
 
-                android:id="@+id/llinformals"
+                android:foreground="?selectableItemBackground"
                 android:orientation="vertical">
 
                 <ImageView
@@ -167,23 +174,23 @@
 
                     android:src="@drawable/informalsicon" />
                 <TextView
-                    android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:text="Informals"
-                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
 
                     android:textSize="10sp"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/llgallery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:foreground="?selectableItemBackground"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:id="@+id/llgallery"
+                android:foreground="?selectableItemBackground"
                 android:orientation="vertical">
 
                 <ImageView
@@ -193,21 +200,21 @@
                     android:foreground="?selectableItemBackground"
                     android:src="@drawable/galleryicon" />
                 <TextView
-                    android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:text="Gallery"
-                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
 
                     android:textSize="10sp"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/llabout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:id="@+id/llabout"
                 android:foreground="?selectableItemBackground"
 
                 android:orientation="vertical">
@@ -218,21 +225,21 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/abouticon" />
                 <TextView
-                    android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:text="About"
-                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
 
                     android:textSize="10sp"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/llourteam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:id="@+id/llourteam"
                 android:foreground="?selectableItemBackground"
 
                 android:orientation="vertical">
@@ -243,14 +250,14 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ourteamicon" />
                 <TextView
-                    android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:text="Our Team"
 
-                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
                     android:textSize="10sp"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>

@@ -8,7 +8,6 @@ import com.abc.spardha17.R;
 
 public class strings {
     public String[] titles = {
-            "Aquatics",
             "Athletics",
             "Badminton",
             "Basketball",
@@ -26,13 +25,12 @@ public class strings {
             "Power Lifting",
             "Squash",
             "Table Tennis",
-            "Taekwando",
+            "Taekwondo",
             "Volleyball",
             "Weightlifting"
     };
 
     public int[] icons = {
-            R.drawable.aq,
             R.drawable.at,
             R.drawable.bad,
             R.drawable.bas,
@@ -57,7 +55,6 @@ public class strings {
 
 
     public int[] images = {
-            R.drawable.aquatics,
             R.drawable.athletics,
             R.drawable.badminton,
             R.drawable.basketball,
@@ -80,7 +77,6 @@ public class strings {
             R.drawable.weightlifting
     };
     public String[] colors = {
-            "#2E86C1",
             "#2ECC71",
             "#F4D03F",
             "#e2361f",
@@ -104,7 +100,6 @@ public class strings {
     };
 
     public String[] results = {
-            "https://quarkbackend.com/getfile/eternaldivine100/aquaticsres",
             "https://quarkbackend.com/getfile/eternaldivine100/athleticsres",
             "https://quarkbackend.com/getfile/eternaldivine100/badmintonres",
             "https://quarkbackend.com/getfile/eternaldivine100/basketballres",
@@ -127,7 +122,6 @@ public class strings {
             "https://quarkbackend.com/getfile/eternaldivine100/weightliftingres"
     };
     public String[] fixtures = {
-            "https://quarkbackend.com/getfile/eternaldivine100/aquaticsfix",
             "https://quarkbackend.com/getfile/eternaldivine100/athleticsfix",
             "https://quarkbackend.com/getfile/eternaldivine100/badmintonfix",
             "https://quarkbackend.com/getfile/eternaldivine100/basketballfix",
@@ -151,7 +145,6 @@ public class strings {
     };
 
     public String[] contact = {
-            "https://quarkbackend.com/getfile/eternaldivine100/aquaticscon",
             "https://quarkbackend.com/getfile/eternaldivine100/athleticscon",
             "https://quarkbackend.com/getfile/eternaldivine100/badmintoncon",
             "https://quarkbackend.com/getfile/eternaldivine100/basketballcon",
@@ -174,38 +167,75 @@ public class strings {
             "https://quarkbackend.com/getfile/eternaldivine100/weightliftingcon"
     };
     public String[] halloffame = {
-            "IIT(BHU), Varanasi",
-            "IIT Kanpur (Boys)\n" + "NIT Rourkela (Girls)",
-            "IIT KGP (Boys)\n" +
-                    "BIT Mesra (Girls)",
-            "ZHCET (Boys)\n" +
-                    "IIT (BHU), Varanasi (Girls)",
-            "IIT (BHU), Varanasi (Boys)",
+            "MNNIT Allahabad (Boys)\n" +
+
+                    "IIT Roorkee (Girls)",
+
+
+            "IIT Delhi (Boys)\n" +
+
+                    "Shivnadar (Girls)",
+
+
+
             "IIT (BHU), Varanasi (Boys)\n" +
-                    "REC (Girls)",
-            "IIT (BHU), Varanasi (Boys)\n" +
-                    "NIT K (Girls)",
-            "IIT(BHU), Varanasi",
-            "MANIT" ,
-            "IIT(BHU), Varanasi",
-            "IIT (BHU), Varanasi (Boys)",
-            "NIT Rourkela (Boys)\n" +
-                    "GWECA (Girls)",
-            "IIT (BHU), Varanasi (Boys)\n" +
-                    "GWECA (Girls)",
-            "Will be Updated Soon !",
-            "IIT (BHU), Varanasi (Boys)\n" +
+
                     "MITS (Girls)",
 
+
+            "IIT (BHU), Varanasi (Boys)\n",
+
+
+            "BBD Lucknow (Boys)\n" +
+
+                    "NIT Trichy (Girls)",
+
+
+            "NIT Trichy (Boys)\n" +
+
+                    "NIT Trichy (Girls)",
+
+
+            "IIT(BHU), Varanasi",
+
+            "Shivnadar University",
+
+            "IIT(BHU), Varanasi",
+
+            "IIT Kanpur (Boys)",
+
+            "Cimage Patna (Boys)\n" +
+
+                    "GWEC Ajmer (Girls)",
+
+            "IIT Bombay (Boys)\n" +
+
+                    "GWEC Ajmer (Girls)",
+
+            "Will be Updated Soon !",
+
+            "NIT Trichy (Boys)",
+
             "IIT Kanpur",
-            "IIT (BHU), Varanasi" ,
-            "IMT GZD (Boys)\n" +
+
+            "NIT Trichy (Boys)\n" +
+
                     "IIIT Delhi (Girls)",
+
             "IIT (BHU), Varanasi (Boys)\n" +
-                    "IIT (BHU), Varanasi (Girls)",
+
+                    "IIT Roorkee (Girls)",
+
             "IIT (BHU), Varanasi (Boys)\n" +
+
+                    "Shivnadar University (Girls)",
+
+            "IIT (BHU), Varanasi (Boys)\n" +
+
                     "IIT Kanpur (Girls)",
-            "IIT Kanpur (Boys)"
+
+            "IIT KGP (Boys)"
+
     };
 
 }

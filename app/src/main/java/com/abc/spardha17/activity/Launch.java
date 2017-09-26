@@ -4,6 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,12 +20,16 @@ import android.widget.TextView;
 import com.abc.spardha17.R;
 import com.abc.spardha17.activity.Launchbackend.JSONParse;
 import com.abc.spardha17.activity.Launchbackend.movie;
+import com.abc.spardha17.activity.Launchbackend.myadapter;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 
 import java.util.List;
 
@@ -199,7 +207,49 @@ public class Launch extends AppCompatActivity {
         text1.setText(mDataset.get(0).getName());
         content1.setText(mDataset.get(0).getContent());
         System.out.println("hey hey " + mDataset.get(0).getUrl());
-        Glide.with(icon1.getContext()).load(mDataset.get(0).getUrl()).into(icon1);
+        Glide.with(icon1.getContext()).load(mDataset.get(0).getUrl())
+                .transform(new CircleTransform(getBaseContext()))
+                .diskCacheStrategy(DiskCacheStrategy.ALL).into(icon1);
+
     }
 
+    public class CircleTransform extends BitmapTransformation {
+        public CircleTransform(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
+            return circleCrop(pool, toTransform);
+        }
+
+        private Bitmap circleCrop(BitmapPool pool, Bitmap source) {
+            if (source == null) return null;
+
+            int size = Math.min(source.getWidth(), source.getHeight());
+            int x = (source.getWidth() - size) / 2;
+            int y = (source.getHeight() - size) / 2;
+
+            // TODO this could be acquired from the pool too
+            Bitmap squared = Bitmap.createBitmap(source, x, x, size, size);
+
+            Bitmap result = pool.get(size, size, Bitmap.Config.ARGB_8888);
+            if (result == null) {
+                result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+            }
+
+            Canvas canvas = new Canvas(result);
+            Paint paint = new Paint();
+            paint.setShader(new BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
+            paint.setAntiAlias(true);
+            float r = size / 2f;
+            canvas.drawCircle(r, r, r, paint);
+            return result;
+        }
+
+        @Override
+        public String getId() {
+            return getClass().getName();
+        }
+    }
 }

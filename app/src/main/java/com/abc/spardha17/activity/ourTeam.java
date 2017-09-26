@@ -39,7 +39,7 @@ public class ourTeam extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_team);
 
-        GridLayoutManager gridlayoutManager = new GridLayoutManager(getBaseContext(),2);
+        GridLayoutManager gridlayoutManager = new GridLayoutManager(getBaseContext(), 1);
         mRecyclerView.setLayoutManager(gridlayoutManager);
         sharedpreferences = getSharedPreferences("dataourTeam", Context.MODE_PRIVATE);
 

@@ -16,23 +16,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="16dp"
-        android:background="@drawable/corners"
         android:orientation="vertical"
         android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/eventnameres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Event Name"
                 android:layout_gravity="center_vertical"
+                android:text="Event Name"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textStyle="bold" />
@@ -70,9 +69,9 @@
                 android:layout_gravity="end|center_vertical"
                 android:layout_weight="1"
                 android:foregroundGravity="right"
-                android:textColor="#ff1744"
                 android:gravity="right"
                 android:text="n-a"
+                android:textColor="#ff1744"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -80,8 +79,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:layout_marginTop="10dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView

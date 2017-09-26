@@ -35,7 +35,9 @@
         <activity
             android:name=".activity.Game"
             android:label="@string/title_activity_game"
+
             android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -44,6 +46,8 @@
         <activity
             android:name=".activity.Launch"
             android:label="Spardha 17"
+
+            android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
@@ -53,8 +57,10 @@
         </activity>
         <activity
             android:name=".activity.ourTeam"
+
             android:label="@string/title_activity_our_team"
             android:parentActivityName=".activity.Launch"
+            android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -72,7 +78,9 @@
         <activity
             android:name=".activity.Informals"
             android:label="@string/title_activity_informals"
+
             android:parentActivityName=".activity.Launch"
+            android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -89,8 +97,10 @@
         </activity>
         <activity
             android:name=".activity.Gallery"
+
             android:label="@string/title_activity_gallery"
             android:parentActivityName=".activity.Launch"
+            android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -98,8 +108,10 @@
         </activity>
         <activity
             android:name=".activity.Spardha17"
+
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_spardha17"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

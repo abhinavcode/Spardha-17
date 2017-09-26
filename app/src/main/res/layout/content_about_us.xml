@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginTop="?actionBarSize"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="?actionBarSize"
+    android:orientation="vertical"
     tools:context="com.abc.spardha17.activity.AboutUs"
-    tools:showIn="@layout/activity_about_us"
-    android:orientation="vertical">
+    tools:showIn="@layout/activity_about_us">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/corners"
+        android:elevation="5dp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="HYPE AROUND SPARDHA"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="HYPE AROUND SPARDHA"/>
+                android:textSize="20dp" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
@@ -31,22 +32,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+
             android:text="For starters, 2017 will witness the 33rd edition of Spardha, a festival which has grown from strength to strength ever since its inception. After all these succesful editions, Spardha, today stands as the largest inter-collegiate sporting event of India."/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/corners"
-        android:orientation="vertical"
         android:layout_margin="4dp"
-        android:gravity="center_horizontal">
+        android:background="@drawable/corners"
+        android:elevation="5dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="THE TALK OF THE TOWN"
             android:textColor="@android:color/black"
-            android:textSize="20dp"
-            android:text="THE TALK OF THE TOWN"/>
+            android:textSize="20dp" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
@@ -63,15 +66,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/corners"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:elevation="5dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="WHAT YOU TAKE BACK"
             android:textColor="@android:color/black"
-            android:textSize="20dp"
-            android:text="WHAT YOU TAKE BACK"/>
+            android:textSize="20dp" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"

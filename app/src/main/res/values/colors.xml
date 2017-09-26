@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#01579b</color>
-    <color name="colorPrimaryDark">#004881</color>
-    <color name="colorScroll">#1976d2</color>
+    <color name="colorPrimary">#3ec7fd</color>
+    <color name="colorPrimaryDark">#13a4dd</color>
+    <color name="colorScroll">#13a4dd</color>
 
     <!--<color name="textColorPrimary">#C8E6C9</color>-->
-    <color name="colorAccent">#82b1ff</color>
-    <color name="textColorPrimary">#212121</color>
-    <color name="secondary_text">#757575</color>
+    <color name="colorAccent">#dddddd</color>
+    <color name="textColorPrimary">#808080</color>
+    <color name="secondary_text">#dddddd</color>
     <color name="icons">#FFFFFF</color>
-    <color name="divider">#BDBDBD</color>
-    <color name="navigationBarColor">#01579b</color>
+    <color name="divider">#dddddd</color>
+    <color name="navigationBarColor">#3ec7fd</color>
 
     <color name="black_overlay">#66000000</color>
 
