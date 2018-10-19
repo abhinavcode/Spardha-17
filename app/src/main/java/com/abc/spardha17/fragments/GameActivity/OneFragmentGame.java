@@ -62,7 +62,6 @@ public class OneFragmentGame extends Fragment {
                 (RecyclerView) v.findViewById(R.id.recycler_view_fixture);
         sharedpreferences = this.getActivity().getSharedPreferences("Fixture", Context.MODE_PRIVATE);
 
-        getdatafromserver();
 
         gridlayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(gridlayoutManager);
@@ -71,6 +70,8 @@ public class OneFragmentGame extends Fragment {
         adapter = new RecyclerAdapterFixtures(getActivity().getBaseContext(), resultdata);
         recyclerView.setAdapter(adapter);
         resultdata.clear();
+        getdatafromserver();
+
 //        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override
 //            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -87,59 +88,23 @@ public class OneFragmentGame extends Fragment {
     }
 
     private void getdatafromserver() {
-        String tag_json_arry = "json_array_req";
-        final ProgressDialog pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
 
-        JsonArrayRequest req = new JsonArrayRequest(url,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putString("response" + position, response.toString());
-                        editor.commit();
-                        Log.d(AppController.TAG, response.toString());
-                        System.out.println(response.toString());
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject jresponse = response.getJSONObject(i);
-                                DataFixtures data = new DataFixtures(jresponse.getString("eventname"), jresponse.getString("location"), jresponse.getString("date"),jresponse.getString("time"), jresponse.getString("team1"),jresponse.getString("team2"));
-                                resultdata.add(data);
-                            }
-
-                            adapter.notifyDataSetChanged();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        pDialog.hide();
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-                String responses = sharedpreferences.getString("response" + position, null);
-                if (responses != null) {
-                    try {
-                        JSONArray response = new JSONArray(responses);
-                        for (int i = 0; i < response.length(); i++) {
-                            JSONObject jresponse = response.getJSONObject(i);
-                            DataFixtures data = new DataFixtures(jresponse.getString("eventname"), jresponse.getString("location"), jresponse.getString("date"), jresponse.getString("time"), jresponse.getString("team1"), jresponse.getString("team2"));
-                            resultdata.add(data);
-                        }
-
-                        adapter.notifyDataSetChanged();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+        String responses = sharedpreferences.getString("response" + position, null);
+        if (responses != null) {
+            try {
+                JSONArray response = new JSONArray(responses);
+                for (int i = 0; i < response.length(); i++) {
+                    JSONObject jresponse = response.getJSONObject(i);
+                    DataFixtures data = new DataFixtures(jresponse.getString("eventname"), jresponse.getString("location"), jresponse.getString("date"), jresponse.getString("time"), jresponse.getString("team1"), jresponse.getString("team2"));
+                    resultdata.add(data);
                 }
-                Log.d(AppController.TAG, "Error: " + error.getMessage());
-                pDialog.hide();
+
+                adapter.notifyDataSetChanged();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        });
-        AppController.getInstance().addToRequestQueue(req, tag_json_arry);
+        }
+        Log.d(AppController.TAG, "Error");
 
     }
 

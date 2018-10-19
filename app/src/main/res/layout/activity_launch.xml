@@ -5,11 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.abc.spardha17.activity.Launch">
+    tools:context="com.abc.spardha17.activity.Launch"
+    android:background="#000">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ffffff"
         android:theme="@style/MyMaterialTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -22,7 +24,9 @@
         <!--app:popupTheme="@style/MyMaterialTheme.PopupOverlay"-->
         <!--android:layout_height="?attr/actionBarSize"-->
         <!--android:background="?attr/colorPrimary"-->
+
     </android.support.design.widget.AppBarLayout>
+
     <include layout="@layout/content_launch"
         />
 

@@ -72,43 +72,17 @@ public class ThreeFragmentGame extends Fragment {
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
+        String response = sharedpreferences.getString("responsec" + position, null);
+        if (response != null) {
+            JSONParseteam pj = new JSONParseteam();
+            pj.parseJSONteam(response);
+            mDataset = pj.getData();
+            mAdapter = new RecyclerAdapterContact(mDataset);
+            mRecyclerView.setAdapter(mAdapter);
 
-        StringRequest stringRequest = new StringRequest(url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+        }
+        pDialog.dismiss();
 
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putString("responsec" + position, response);
-                        editor.commit();
-                        JSONParseteam pj = new JSONParseteam();
-                        pj.parseJSONteam(response);
-                        mDataset = pj.getData();
-                        mAdapter = new RecyclerAdapterContact(mDataset);
-                        mRecyclerView.setAdapter(mAdapter);
-                        pDialog.dismiss();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(getActivity(),"No Internet connection",Toast.LENGTH_LONG).show();
-                        String response = sharedpreferences.getString("responsec" + position, null);
-                        if (response != null) {
-                            JSONParseteam pj = new JSONParseteam();
-                            pj.parseJSONteam(response);
-                            mDataset = pj.getData();
-                            mAdapter = new RecyclerAdapterContact(mDataset);
-                            mRecyclerView.setAdapter(mAdapter);
-
-                        }
-                        pDialog.dismiss();
-
-                    }
-                });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        requestQueue.add(stringRequest);
 
     }
 

@@ -29,6 +29,7 @@
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="2dp"
                 android:layout_gravity="left"
                 android:gravity="left"
                 android:text="date"
@@ -42,6 +43,7 @@
                 android:layout_gravity="right|end"
                 android:foregroundGravity="right"
                 android:gravity="right"
+                android:paddingRight="2dp"
                 android:text="Location"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />

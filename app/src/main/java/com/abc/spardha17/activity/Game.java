@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import com.abc.spardha17.R;
 import com.abc.spardha17.fragments.GameActivity.FourFragmentGame;
 import com.abc.spardha17.fragments.GameActivity.OneFragmentGame;
+import com.abc.spardha17.fragments.GameActivity.RulesFragmentGame;
 import com.abc.spardha17.fragments.GameActivity.ThreeFragmentGame;
 import com.abc.spardha17.fragments.GameActivity.TwoFragmentGame;
 import com.abc.spardha17.fragments.Strings.strings;
@@ -78,6 +79,10 @@ public class Game extends AppCompatActivity {
         Fragment contacts=new ThreeFragmentGame();
         contacts.setArguments(bundle);
         adapter.addFragment(contacts, "CONTACTS");
+
+        Fragment rules=new RulesFragmentGame();
+        rules.setArguments(bundle);
+        adapter.addFragment(rules, "RULES");
 
         Fragment fame=new FourFragmentGame();
         fame.setArguments(bundle);

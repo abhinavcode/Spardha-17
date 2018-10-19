@@ -11,6 +11,7 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,6 +31,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import java.util.List;
 
@@ -47,13 +50,17 @@ public class Launch extends AppCompatActivity {
     public ImageView icon1;
     List<movie> mDataset;
     SharedPreferences sharedpreferences;
+    CarouselView carouselView;
+
+    int[] sampleImages = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4, R.drawable.image_5,R.drawable.image_6};
 
 //    private FloatingActionButton events;
 //    private FloatingActionButton ourTeam;
 //    private FloatingActionButton maps;
 //
 //    private FloatingActionMenu menu;
-    LinearLayout events,informals,about,ourTeam,gallery;
+//    LinearLayout events,informals,about,ourTeam,gallery;
+    CardView events,informals,ourTeam,gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +69,10 @@ public class Launch extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar=getSupportActionBar();
+        carouselView = (CarouselView) findViewById(R.id.carouselView);
+        carouselView.setPageCount(sampleImages.length);
+
+        carouselView.setImageListener(imageListener);
 //        toolbar.setBackground();
         actionBar.hide();
 //        getWindow().getDecorView().setSystemUiVisibility(
@@ -70,14 +81,18 @@ public class Launch extends AppCompatActivity {
 //        getWindow().setStatusBarColor(Color.WHITE);
         sharedpreferences = getSharedPreferences("Launch", Context.MODE_PRIVATE);
 
-        icon1=(ImageView)findViewById(R.id.icon1);
-        content1=(TextView)findViewById(R.id.content1);
-        text1=(TextView)findViewById(R.id.text1);
-        events=(LinearLayout)findViewById(R.id.llevents);
-        informals=(LinearLayout)findViewById(R.id.llinformals);
-        about=(LinearLayout)findViewById(R.id.llabout);
-        ourTeam=(LinearLayout)findViewById(R.id.llourteam);
-        gallery=(LinearLayout)findViewById(R.id.llgallery);
+//        icon1=(ImageView)findViewById(R.id.icon1);
+//        content1=(TextView)findViewById(R.id.content1);
+//        text1=(TextView)findViewById(R.id.text1);
+//        events=(LinearLayout)findViewById(R.id.llevents);
+//        informals=(LinearLayout)findViewById(R.id.llinformals);
+//        about=(LinearLayout)findViewById(R.id.llabout);
+//        ourTeam=(LinearLayout)findViewById(R.id.llourteam);
+//        gallery=(LinearLayout)findViewById(R.id.llgallery);
+        events=(CardView) findViewById(R.id.events);
+        informals=(CardView) findViewById(R.id.informals);
+        ourTeam=(CardView) findViewById(R.id.ourteam);
+        gallery=(CardView) findViewById(R.id.gallery);
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,12 +106,12 @@ public class Launch extends AppCompatActivity {
 
             }
         });
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Launch.this,AboutUs.class));
-            }
-        });
+//        about.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(Launch.this,AboutUs.class));
+//            }
+//        });
         informals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +129,7 @@ public class Launch extends AppCompatActivity {
             JSONParse pj = new JSONParse();
             pj.parseJSON(response);
             mDataset = pj.getMovies();
-            loadData();
+//            loadData();
         }
 //        menu= (FloatingActionMenu) findViewById(R.id.menu_down);
 //        events=(FloatingActionButton)findViewById(R.id.events);
@@ -127,7 +142,7 @@ public class Launch extends AppCompatActivity {
 //        GridLayoutManager gridlayoutManager = new GridLayoutManager(getBaseContext(),1);
 //        mRecyclerView.setLayoutManager(gridlayoutManager);
 
-        sendRequest();
+//        sendRequest();
 
 //        menu.hideMenuButton(false);
 //        menu.toggle(true);
@@ -252,4 +267,10 @@ public class Launch extends AppCompatActivity {
             return getClass().getName();
         }
     }
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
 }

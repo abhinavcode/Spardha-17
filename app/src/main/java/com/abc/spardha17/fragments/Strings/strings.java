@@ -8,6 +8,7 @@ import com.abc.spardha17.R;
 
 public class strings {
     public String[] titles = {
+            "Aquatics",
             "Athletics",
             "Badminton",
             "Basketball",
@@ -31,6 +32,7 @@ public class strings {
     };
 
     public int[] icons = {
+            R.drawable.aq,
             R.drawable.at,
             R.drawable.bad,
             R.drawable.bas,
@@ -55,6 +57,7 @@ public class strings {
 
 
     public int[] images = {
+            R.drawable.aquatics,
             R.drawable.athletics,
             R.drawable.badminton,
             R.drawable.basketball,
@@ -77,6 +80,7 @@ public class strings {
             R.drawable.weightlifting
     };
     public String[] colors = {
+            "#2ECC71",
             "#2ECC71",
             "#F4D03F",
             "#e2361f",
@@ -101,6 +105,7 @@ public class strings {
 
     public String[] results = {
             "https://quarkbackend.com/getfile/eternaldivine100/athleticsres",
+            "https://quarkbackend.com/getfile/eternaldivine100/athleticsres",
             "https://quarkbackend.com/getfile/eternaldivine100/badmintonres",
             "https://quarkbackend.com/getfile/eternaldivine100/basketballres",
             "https://quarkbackend.com/getfile/eternaldivine100/boxingres",
@@ -122,6 +127,7 @@ public class strings {
             "https://quarkbackend.com/getfile/eternaldivine100/weightliftingres"
     };
     public String[] fixtures = {
+            "https://quarkbackend.com/getfile/eternaldivine100/athleticsfix",
             "https://quarkbackend.com/getfile/eternaldivine100/athleticsfix",
             "https://quarkbackend.com/getfile/eternaldivine100/badmintonfix",
             "https://quarkbackend.com/getfile/eternaldivine100/basketballfix",
@@ -145,6 +151,7 @@ public class strings {
     };
 
     public String[] contact = {
+            "https://quarkbackend.com/getfile/eternaldivine100/athleticscon",
             "https://quarkbackend.com/getfile/eternaldivine100/athleticscon",
             "https://quarkbackend.com/getfile/eternaldivine100/badmintoncon",
             "https://quarkbackend.com/getfile/eternaldivine100/basketballcon",
