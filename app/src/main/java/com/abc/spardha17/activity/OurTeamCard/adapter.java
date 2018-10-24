@@ -240,7 +240,7 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
         public ImageView imageView;
         public TextView designation;
         public ImageView contact;
-        public ImageView fb;
+//        public ImageView fb;
         public WebView webview;
 
         public ViewHolder(View v) {
@@ -249,7 +249,7 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
             imageView = (ImageView) v.findViewById(R.id.icon);
             designation = (TextView) v.findViewById(R.id.post);
             contact = (ImageView) v.findViewById(R.id.call);
-            fb = (ImageView) v.findViewById(R.id.fb);
+//            fb = (ImageView) v.findViewById(R.id.fb);
 //            webview=(WebView)v.findViewById(R.id.webview);
             mResources = v.getResources();
             contact.setOnClickListener(new View.OnClickListener() {
@@ -263,14 +263,14 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
                 }
             });
 
-            fb.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    Intent fbop = getFBIntent(itemView.getContext(), mDataset.get(position).getFb());
-                    v.getContext().startActivity(fbop);
-                }
-            });
+//            fb.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int position = getAdapterPosition();
+//                    Intent fbop = getFBIntent(itemView.getContext(), mDataset.get(position).getFb());
+//                    v.getContext().startActivity(fbop);
+//                }
+//            });
         }
     }
 

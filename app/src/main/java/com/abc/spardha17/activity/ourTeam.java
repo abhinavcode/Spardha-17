@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.abc.spardha17.R;
 import com.abc.spardha17.activity.OurTeamCard.DataContacts;
@@ -22,7 +24,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.List;
 
 public class ourTeam extends AppCompatActivity {
-    public static final String JSON_URL = "https://quarkbackend.com/getfile/eternaldivine100/team";
+    public static final String JSON_URL = "https://spardha-17.firebaseio.com/team/.json?shallow=true'";
     List<DataContacts> mDataset;
     SharedPreferences sharedpreferences;
     private RecyclerView mRecyclerView;
@@ -55,7 +57,7 @@ public class ourTeam extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        Log.d("Teamactivity","workion"+response);
                         SharedPreferences.Editor editor = sharedpreferences.edit();
 
                         editor.putString("response", response);
@@ -71,7 +73,9 @@ public class ourTeam extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(ourTeam.this,"No Internet connection",Toast.LENGTH_LONG).show();
+                        Log.d("Teamactivity","not workion");
+
+                        Toast.makeText(ourTeam.this,"No Internet connection",Toast.LENGTH_LONG).show();
                         String response = sharedpreferences.getString("response", null);
                         if (response != null) {
                             JSONParseteam pj = new JSONParseteam();

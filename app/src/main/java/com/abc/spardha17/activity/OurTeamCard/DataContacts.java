@@ -8,7 +8,7 @@ public class DataContacts {
     public String nameofperson;
     public String designation;
     public String contact;
-    public String fb;
+//    public String fb;
     public String imageURL;
 
     public String getNameofperson() {
@@ -35,13 +35,13 @@ public class DataContacts {
         this.contact = contact;
     }
 
-    public String getFb() {
-        return fb;
-    }
+//    public String getFb() {
+//        return fb;
+//    }
 
-    public void setFb(String fb) {
-        this.fb = fb;
-    }
+//    public void setFb(String fb) {
+//        this.fb = fb;
+//    }
 
     public String getImageURL() {
         return imageURL;

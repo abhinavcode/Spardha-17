@@ -52,15 +52,15 @@ public class Launch extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     CarouselView carouselView;
 
-    int[] sampleImages = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4, R.drawable.image_5,R.drawable.image_6};
+//    int[] sampleImages = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4, R.drawable.image_5,R.drawable.image_6};
 
 //    private FloatingActionButton events;
 //    private FloatingActionButton ourTeam;
 //    private FloatingActionButton maps;
 //
 //    private FloatingActionMenu menu;
-//    LinearLayout events,informals,about,ourTeam,gallery;
-    CardView events,informals,ourTeam,gallery;
+    LinearLayout events,informals,about,ourTeam,gallery;
+//    CardView events,informals,ourTeam,gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +69,10 @@ public class Launch extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar=getSupportActionBar();
-        carouselView = (CarouselView) findViewById(R.id.carouselView);
-        carouselView.setPageCount(sampleImages.length);
+//        carouselView = (CarouselView) findViewById(R.id.carouselView);
+//        carouselView.setPageCount(sampleImages.length);
 
-        carouselView.setImageListener(imageListener);
+//        carouselView.setImageListener(imageListener);
 //        toolbar.setBackground();
         actionBar.hide();
 //        getWindow().getDecorView().setSystemUiVisibility(
@@ -84,15 +84,15 @@ public class Launch extends AppCompatActivity {
 //        icon1=(ImageView)findViewById(R.id.icon1);
 //        content1=(TextView)findViewById(R.id.content1);
 //        text1=(TextView)findViewById(R.id.text1);
-//        events=(LinearLayout)findViewById(R.id.llevents);
-//        informals=(LinearLayout)findViewById(R.id.llinformals);
+        events=(LinearLayout)findViewById(R.id.llevents);
+        informals=(LinearLayout)findViewById(R.id.llinformals);
 //        about=(LinearLayout)findViewById(R.id.llabout);
-//        ourTeam=(LinearLayout)findViewById(R.id.llourteam);
-//        gallery=(LinearLayout)findViewById(R.id.llgallery);
-        events=(CardView) findViewById(R.id.events);
-        informals=(CardView) findViewById(R.id.informals);
-        ourTeam=(CardView) findViewById(R.id.ourteam);
-        gallery=(CardView) findViewById(R.id.gallery);
+        ourTeam=(LinearLayout)findViewById(R.id.llourteam);
+        gallery=(LinearLayout)findViewById(R.id.llgallery);
+//        events= findViewById(R.id.events);
+//        informals= findViewById(R.id.informals);
+//        ourTeam= findViewById(R.id.ourteam);
+//        gallery= findViewById(R.id.gallery);
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +131,10 @@ public class Launch extends AppCompatActivity {
             mDataset = pj.getMovies();
 //            loadData();
         }
+//                Glide.with(icon1.getContext()).load(R.drawable.logo)
+//                .transform(new CircleTransform(getBaseContext()))
+//                .diskCacheStrategy(DiskCacheStrategy.ALL).into(icon1);
+
 //        menu= (FloatingActionMenu) findViewById(R.id.menu_down);
 //        events=(FloatingActionButton)findViewById(R.id.events);
 //        maps=(FloatingActionButton)findViewById(R.id.maps);
@@ -197,7 +201,7 @@ public class Launch extends AppCompatActivity {
 //                        mAdapter = new myadapter(mDataset);
 //                        mRecyclerView.setAdapter(mAdapter);
 //                        mDataset.get(0).
-                        loadData();
+//                        loadData();
                         pDialog.dismiss();
                     }
                 },
@@ -216,17 +220,17 @@ public class Launch extends AppCompatActivity {
 
     }
 
-    public void loadData() {
-
-        System.out.println("hey" + mDataset.get(0).getName());
-        text1.setText(mDataset.get(0).getName());
-        content1.setText(mDataset.get(0).getContent());
-        System.out.println("hey hey " + mDataset.get(0).getUrl());
-        Glide.with(icon1.getContext()).load(mDataset.get(0).getUrl())
-                .transform(new CircleTransform(getBaseContext()))
-                .diskCacheStrategy(DiskCacheStrategy.ALL).into(icon1);
-
-    }
+//    public void loadData() {
+//
+//        System.out.println("hey" + mDataset.get(0).getName());
+//        text1.setText(mDataset.get(0).getName());
+//        content1.setText(mDataset.get(0).getContent());
+//        System.out.println("hey hey " + mDataset.get(0).getUrl());
+//        Glide.with(icon1.getContext()).load(mDataset.get(0).getUrl())
+//                .transform(new CircleTransform(getBaseContext()))
+//                .diskCacheStrategy(DiskCacheStrategy.ALL).into(icon1);
+//
+//    }
 
     public class CircleTransform extends BitmapTransformation {
         public CircleTransform(Context context) {
@@ -267,10 +271,5 @@ public class Launch extends AppCompatActivity {
             return getClass().getName();
         }
     }
-    ImageListener imageListener = new ImageListener() {
-        @Override
-        public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(sampleImages[position]);
-        }
-    };
+
 }

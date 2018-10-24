@@ -1,17 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.abc.spardha17.activity.Informals"
-    tools:showIn="@layout/activity_informals">
-    <android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_view_informals"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:foregroundGravity="center"
-    android:scrollbars="vertical" />
+    tools:showIn="@layout/activity_informals"
+    android:orientation="vertical">
+<LinearLayout
 
-</android.support.constraint.ConstraintLayout>
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="horizontal"
+    android:layout_weight="2">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_margin="4dp"
+        android:textColor="#fff"
+        android:gravity="bottom|right"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Inflatable Wall Climbing"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:padding="4dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/informal1"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="Archery"
+        android:gravity="bottom|right"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/informal2"/>
+
+</LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Zorb Football"
+            android:gravity="bottom|right"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:padding="4dp"
+
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_margin="4dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/informal3"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:gravity="bottom|right"
+            android:text="Bungee Basketball"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:padding="4dp"
+
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_height="match_parent"
+            android:background="@drawable/informal4"/>
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:id="@+id/register_informals"
+            android:textColor="#fff"
+            android:text="REGISTER"/>
+    </LinearLayout>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/informal1"/>-->
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/informal2"/>-->
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView3"-->
+        <!--android:layout_below="@+id/imageView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/informal3"/>-->
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView4"-->
+        <!--android:layout_below="@id/imageView2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/informal4"/>-->
+
+</LinearLayout>

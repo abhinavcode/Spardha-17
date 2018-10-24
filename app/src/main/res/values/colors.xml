@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3ec7fd</color>
-    <color name="colorPrimaryDark">#13a4dd</color>
-    <color name="colorScroll">#13a4dd</color>
+    <color name="colorPrimary">#05ab32</color>
+    <color name="colorPrimaryDark">#048627</color>
+    <color name="colorScroll">#00e16d</color>
 
     <!--<color name="textColorPrimary">#C8E6C9</color>-->
     <color name="colorAccent">#dddddd</color>
@@ -10,7 +10,7 @@
     <color name="secondary_text">#dddddd</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#dddddd</color>
-    <color name="navigationBarColor">#3ec7fd</color>
+    <color name="navigationBarColor">#05ab32</color>
 
     <color name="black_overlay">#66000000</color>
 

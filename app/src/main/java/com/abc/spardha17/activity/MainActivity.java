@@ -30,10 +30,12 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         System.out.println("asjdh");
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
+//        getActionBar().setTitle("Events");
+        getSupportActionBar().setTitle("Events");
 
 //        tabLayout = (TabLayout) findViewById(R.id.tabs);
 //        tabLayout.setupWithViewPager(viewPager);

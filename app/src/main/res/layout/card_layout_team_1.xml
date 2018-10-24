@@ -99,6 +99,7 @@
                     android:elevation="10dp"
                     android:padding="8dp"
                     android:src="@drawable/fb"
+                    android:visibility="gone"
                     android:tint="#fff" />
                 <!--<TextView-->
                 <!--android:id="@+id/fb"-->

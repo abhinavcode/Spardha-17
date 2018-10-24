@@ -15,7 +15,7 @@ public class JSONParseteam {
     public static String[] name;
     public static String[] url;
     public static String[] designation;
-    public static String[] fb;
+//    public static String[] fb;
     public static String[] contact;
     List<DataContacts> data ;
     private JSONArray team = null;
@@ -37,7 +37,7 @@ public class JSONParseteam {
             name = new String[team.length()];
             url = new String[team.length()];
             designation= new String[team.length()];
-            fb=new String[team.length()];
+//            fb=new String[team.length()];
             contact=new String[team.length()];
             data = new ArrayList<DataContacts>();
 
@@ -51,12 +51,12 @@ public class JSONParseteam {
                 name[i] = jsonObject.getString("name");
                 url[i] = jsonObject.getString("url");
                 designation[i]=jsonObject.getString("post");
-                fb[i]=jsonObject.getString("fb");
+//                fb[i]=jsonObject.getString("fb");
                 contact[i]=jsonObject.getString("contact");
                 data_object.setNameofperson(name[i]);
                 data_object.setImageURL(url[i]);
                 data_object.setDesignation(designation[i]);
-                data_object.setFb(fb[i]);
+//                data_object.setFb(fb[i]);
                 data_object.setContact(contact[i]);
                 data.add(data_object);
 

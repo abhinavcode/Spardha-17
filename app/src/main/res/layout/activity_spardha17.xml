@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
+    android:background="@drawable/splash1"
     tools:context="com.abc.spardha17.activity.Spardha17">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
