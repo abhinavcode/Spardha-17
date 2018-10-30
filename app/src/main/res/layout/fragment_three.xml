@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.abc.spardha17.fragments.MainActivity.ThreeFragment">
+    tools:context="com.iitbhu.spardha.fragments.MainActivity.ThreeFragment">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_contact"
         android:layout_width="match_parent"

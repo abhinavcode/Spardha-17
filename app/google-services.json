@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:941471617466:android:fd51ac0e84297a47",
         "android_client_info": {
-          "package_name": "com.abc.spardha17"
+          "package_name": "com.iitbhu.spardha"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "941471617466-2r50d28ohdfvr5b5um4qgm4t6eh9h135.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.abc.spardha17",
+            "package_name": "com.iitbhu.spardha",
             "certificate_hash": "3b687ad9bb5cdff674f663f7ab93d3df0c02f30a"
           }
         },

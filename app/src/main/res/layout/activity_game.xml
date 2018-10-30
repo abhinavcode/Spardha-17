@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.abc.spardha17.activity.Game">
+    tools:context="com.iitbhu.spardha.activity.Game">
 
 
     <!--<android.support.design.widget.AppBarLayout-->

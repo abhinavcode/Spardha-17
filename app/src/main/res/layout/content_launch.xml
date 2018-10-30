@@ -7,7 +7,7 @@
     android:background="@drawable/grass"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.abc.spardha17.activity.Launch"
+    tools:context="com.iitbhu.spardha.activity.Launch"
     tools:showIn="@layout/activity_launch">
     <!-- <android.support.v7.widget.RecyclerView -->
     <!-- android:id="@+id/my_recycler_view" -->

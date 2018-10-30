@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.abc.spardha17.fragments.MainActivity.TwoFragment">
+    tools:context="com.iitbhu.spardha.fragments.MainActivity.TwoFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.LinearLayoutCompat

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="?actionBarSize"
     android:orientation="vertical"
-    tools:context="com.abc.spardha17.activity.AboutUs"
+    tools:context="com.iitbhu.spardha.activity.AboutUs"
     tools:showIn="@layout/activity_about_us">
     <LinearLayout
         android:layout_width="match_parent"
